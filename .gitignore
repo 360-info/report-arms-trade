@@ -1,0 +1,16 @@
+# system files
+.DS_Store
+Thumbs.db
+
+# vscode
+.vscode
+
+# r
+/renv
+.Rhistory
+
+# web dev
+/node_modules
+
+# quarto
+/.quarto/
