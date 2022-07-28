@@ -1,0 +1,58 @@
+---
+title: "Arms trade: global map"
+subtitle: "Transfers between countries"
+author: "James Goldie, 360info"
+date: "2022-07-28"
+code-fold: true
+theme: style/article.scss
+---
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+SIPRI doesn't seem to allow automated download of all of the importer/exporter TIV tables, but I've downloaded them for each exporter (current as of 2022-07-28).
+
+Let's tidy up this data.
+
+```{r}
+#| label: importfns
+
+# read_tidy_single_exporter: read a single exporter csv in, then
+# tidy up and lengthen it, ready to be merged
+read_tidy_single_exporter <- function(path) {
+  read_csv(path, skip = 10) %>%
+    rename("recipient" = "...1") %>%
+    filter(!is.na(recipient)) %>%
+    # (years that are all empty read in as logical, not numeric. drop 'em)
+    select(recipient, where(is.numeric)) %>%
+    pivot_longer(cols = -recipient, names_to = "year", values_to = "count")
+}
+
+# extract_supplier: extract the country name from the first line of a sipri
+# export tiv table csv file
+extract_supplier <- function(path) {
+  readLines(path, n = 1) %>%
+    str_replace(coll('"TIV of arms exports from '), "") %>%
+    str_replace(regex(', [:digit:]{4}\\-[:digit:]{4}",{1,}'), "")
+}
+```
+
+```{r}
+#| label: import
+
+tibble(
+  path = list.files(here("data", "trademap-raw"), pattern = glob2rx("*.csv"),
+    full.names = TRUE)) %>%
+  mutate(
+    supplier = map_chr(path, extract_supplier),
+    content = map(path, read_tidy_single_exporter)) %>%
+  unnest(content) %>%
+  select(-path) %>%
+  write_csv(here("data", "sipri-imports-exports.csv")) %>%
+  write_csv(here("data", "sipri-imports-exports.csv.gz")) ->
+all_data
+
+# NOTE - do we want to create explicitly missing data?
+```
