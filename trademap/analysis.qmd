@@ -257,12 +257,15 @@ all_transfer_centroids %>%
     supplier_name = name[1],
     recipient_name = name[2],
     supplier_name = name[1],
-    recipient_name = name[2]) %>%
-  select(-transfer_id) %>%
-  # st_cast("LINESTRING") %>%
-  st_write(here("data", "sipri-exports-processed.geojson"),
-    delete_dsn = TRUE) ->
+    recipient_name = name[2],
+    count = count[1]) %>%
+  mutate(count = as.integer(count)) ->
 all_transfer_lines
+
+st_write(
+  all_transfer_lines,
+  here("data", "sipri-exports-processed.geojson"),
+  delete_dsn = TRUE)
 
 # geojson compression?
 ```
