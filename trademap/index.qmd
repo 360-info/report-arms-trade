@@ -13,6 +13,9 @@ css:
   - https://cdn.jsdelivr.net/npm/maplibre-gl@2.1.9/dist/maplibre-gl.css
 execute:
   echo: false
+resources:
+  - style.json
+  - /data/sipri-exports-processed.csv
 ---
 
 {{< include ../_popup-buttons.qmd >}}
@@ -62,7 +65,7 @@ viewof map = {
     container,
     center: [-74.5, 40],
     zoom: 3,
-    style: "https://demotiles.maplibre.org/style.json"
+    style: "style.json"
   });
 
   console.log(">>> Map created");
