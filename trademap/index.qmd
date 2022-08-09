@@ -7,19 +7,27 @@ theme: none
 # they only come with the bootstrap themes usually), and some extra css for the
 # modals 
 css:
-  - style/embed.css
+  - /style/embed.css
   - https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css
-  - style/modal.css
+  - /style/modal.css
   - https://cdn.jsdelivr.net/npm/maplibre-gl@2.1.9/dist/maplibre-gl.css
 execute:
   echo: false
 ---
 
-{{< include _popup-buttons.qmd >}}
+{{< include ../_popup-buttons.qmd >}}
 
 ```{ojs}
 // load maplibre-gl. it's a bit finnicky...
-maplibregl = require('maplibre-gl@2.1.9/dist/maplibre-gl.js').catch(() => window["maplibregl"]);
+maplibregl = require("maplibre-gl@2.1.9/dist/maplibre-gl.js").catch(() => window["maplibregl"]);
+
+deck = require.alias({
+  // optional dependencies
+  h3: {}
+})("deck.gl@latest/dist.min.js")
+
+// https://deck.gl/docs/api-reference/extensions/data-filter-extension
+// deckExtensions = require("deck.gl/extensions@8.8.6");
 
 // TODO - deckgl? or just maplibre?
 
@@ -43,7 +51,7 @@ maplibregl = require('maplibre-gl@2.1.9/dist/maplibre-gl.js').catch(() => window
    (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */
    
 viewof map = {
-  let container = html`<div style='height:400px;' />`;
+  let container = html`<div style='height:650px;' />`;
 
   // Give the container dimensions.
   yield container;
@@ -53,18 +61,42 @@ viewof map = {
   let map = new maplibregl.Map({
     container,
     center: [-74.5, 40],
-    zoom: 6,
+    zoom: 3,
     style: "https://demotiles.maplibre.org/style.json"
   });
+
+  console.log(">>> Map created");
 
   // wait until the map loads
   map.on("load", () => {
     container.value = map;
     container.dispatchEvent(new CustomEvent("input"));
+
+    d3.csv("/data/sipri-exports-processed.csv")
+      .then(transfers => {
+        console.log(transfers);
+
+        // add layer
+        map.addLayer(new deck.MapboxLayer({
+            id: "transfers",
+            type: deck.ArcLayer,
+            data: transfers,
+            getSourcePosition:
+              d => [Number(d.supplier_lon), Number(d.supplier_lat)],
+            getTargetPosition:
+              d => [Number(d.recipient_lon), Number(d.recipient_lat)],
+            getSourceColor: [255, 208, 0, 102],
+            getTargetColor: [0, 128, 255, 102],
+            // getWidth: d => d.count // scale?
+            getWidth: 2
+        }));
+
+        console.log(">>> Layer added");
+      })
   });
 }
 ```
 
 <!-- share/about popups -->
 
-{{< include _popup-dialogs.qmd >}}
+{{< include ../_popup-dialogs.qmd >}}

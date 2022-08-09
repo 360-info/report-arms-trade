@@ -1,4 +1,5 @@
 project:
   type: website
   output-dir: out
-  
+  resources:
+    - data/sipri-exports-processed.csv

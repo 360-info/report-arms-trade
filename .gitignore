@@ -14,3 +14,9 @@ Thumbs.db
 
 # quarto
 /.quarto/
+
+# output (remove on poublish)
+out
+
+# contract research
+data/contracts/usa/*.zip
