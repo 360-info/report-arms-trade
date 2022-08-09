@@ -27,7 +27,10 @@ maplibregl = require("maplibre-gl@2.1.9/dist/maplibre-gl.js").catch(() => window
 deck = require.alias({
   // optional dependencies
   h3: {}
-})("deck.gl@latest/dist.min.js")
+})("deck.gl@latest/dist.min.js");
+
+csvLoader =
+  import('https://unpkg.com/@loaders.gl/csv@3.2.6/dist/esm/index.js?module')
 
 // https://deck.gl/docs/api-reference/extensions/data-filter-extension
 // deckExtensions = require("deck.gl/extensions@8.8.6");
@@ -74,29 +77,39 @@ viewof map = {
   map.on("load", () => {
     container.value = map;
     container.dispatchEvent(new CustomEvent("input"));
-
-    d3.csv("/data/sipri-exports-processed.csv")
-      .then(transfers => {
-        console.log(transfers);
-
-        // add layer
-        map.addLayer(new deck.MapboxLayer({
-            id: "transfers",
-            type: deck.ArcLayer,
-            data: transfers,
-            getSourcePosition:
-              d => [Number(d.supplier_lon), Number(d.supplier_lat)],
-            getTargetPosition:
-              d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-            getSourceColor: [255, 208, 0, 102],
-            getTargetColor: [0, 128, 255, 102],
-            // getWidth: d => d.count // scale?
-            getWidth: 2
-        }));
-
-        console.log(">>> Layer added");
-      })
+    map.addLayer(new deck.MapboxLayer({
+      id: "transfers",
+      type: deck.ArcLayer,
+      data: "/data/sipri-exports-processed.csv",
+      loaders: [csvLoader.CSVLoader],
+      loadOptions: {
+        csv: {
+          delimiter: ",",
+          dynamicTyping: true,
+          skipEmptyLines: true
+        }
+      },
+      getSourcePosition:
+        d => [Number(d.supplier_lon), Number(d.supplier_lat)],
+      getTargetPosition:
+        d => [Number(d.recipient_lon), Number(d.recipient_lat)],
+      getSourceColor: [255, 208, 0, 102],
+      getTargetColor: [0, 128, 255, 102],
+      // getWidth: d => d.count // scale?
+      getWidth: 2
+    }));
   });
+
+
+  // d3.csv("/data/sipri-exports-processed.csv")
+  //   .then(transfers => {
+  //     console.log(transfers);
+
+  //     // add layer
+      
+
+  //     console.log(">>> Layer added");
+  //   })
 }
 ```
 
