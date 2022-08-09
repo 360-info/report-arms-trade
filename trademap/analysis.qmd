@@ -10,6 +10,7 @@ theme: style/article.scss
 ```{r}
 library(tidyverse)
 library(sf)
+library(lubridate)
 library(countrycode)
 library(cshapes)
 library(skimr)
@@ -65,7 +66,6 @@ Now we need some spatial context for these groups. In cases where it's a group w
 #| label: match-country-names
 
 all_data %>%
-
   filter(supplier != "Total", recipient != "Total") %>%
   mutate(
     # first, try to get the country code directly
@@ -235,12 +235,34 @@ current_transfer_centroids %>%
   # finally, ditch the NA rows (no export)
   filter(!is.na(count)) %>%
   write_csv(here("data", "sipri-exports-processed.csv")) %>%
-  write_csv(here("data", "sipri-exports-processed.csv.gz"))->
+  write_csv(here("data", "sipri-exports-processed.csv.gz")) ->
 all_transfer_centroids
 
-# now let's nest 
-
+# geojson export: we need each row's geometry to be a line from supplier
+# to recipient. let's pivot suppliers and recipients longer, then convert to
+# sf and summarise to get the linestrings
 all_transfer_centroids %>%
-  filter(is.na(supplier_lat) | is.na(recipient_lat)) %>%
-  distinct(supplier, recipient)
+  rename(supplier_name = supplier, recipient_name = recipient) %>%
+  mutate(
+    transfer_id = 1:n()) %>%
+  pivot_longer(
+    c(starts_with("supplier"), starts_with("recipient")),
+    names_to = c("role", ".value"), names_sep = "_") %>%
+  filter(!is.na(lat), !is.na(lon)) %>%
+  st_as_sf(coords = c("lon", "lat")) %>%
+  group_by(transfer_id) %>%
+  arrange(desc(role)) %>%     # supplier before recipient 
+  summarise(
+    year = year[1],
+    supplier_name = name[1],
+    recipient_name = name[2],
+    supplier_name = name[1],
+    recipient_name = name[2]) %>%
+  select(-transfer_id) %>%
+  # st_cast("LINESTRING") %>%
+  st_write(here("data", "sipri-exports-processed.geojson"),
+    delete_dsn = TRUE) ->
+all_transfer_lines
+
+# geojson compression?
 ```
