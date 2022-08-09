@@ -22,7 +22,8 @@ resources:
 
 ```{ojs}
 // load maplibre-gl. it's a bit finnicky...
-maplibregl = require("maplibre-gl@2.1.9/dist/maplibre-gl.js").catch(() => window["maplibregl"]);
+maplibregl = require("maplibre-gl@2.1.9/dist/maplibre-gl.js")
+  .catch(() => window["maplibregl"]);
 
 deck = require.alias({
   // optional dependencies
@@ -33,7 +34,8 @@ csvLoader =
   import('https://unpkg.com/@loaders.gl/csv@3.2.6/dist/esm/index.js?module')
 
 // https://deck.gl/docs/api-reference/extensions/data-filter-extension
-// deckExtensions = require("deck.gl/extensions@8.8.6");
+// deckExtensions = require('@deck.gl/extensions@8.8.6/dist/es5/index.js')
+//   .catch(() => window["_interopRequireDefault"]);
 
 // TODO - deckgl? or just maplibre?
 
@@ -73,7 +75,7 @@ viewof map = {
 
   console.log(">>> Map created");
 
-  // wait until the map loads
+  // whe nthe map loads, register it with ojs and add the csv layer
   map.on("load", () => {
     container.value = map;
     container.dispatchEvent(new CustomEvent("input"));
@@ -99,17 +101,6 @@ viewof map = {
       getWidth: 2
     }));
   });
-
-
-  // d3.csv("/data/sipri-exports-processed.csv")
-  //   .then(transfers => {
-  //     console.log(transfers);
-
-  //     // add layer
-      
-
-  //     console.log(">>> Layer added");
-  //   })
 }
 ```
 
