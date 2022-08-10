@@ -21,23 +21,16 @@ resources:
 {{< include ../_popup-buttons.qmd >}}
 
 ```{ojs}
-// load maplibre-gl. it's a bit finnicky...
-maplibregl = require("maplibre-gl@2.1.9/dist/maplibre-gl.js")
-  .catch(() => window["maplibregl"]);
+//| label: libraries
 
-deck = require.alias({
-  // optional dependencies
-  h3: {}
-})("deck.gl@latest/dist.min.js");
+r = require.alias({
+  maplibregl: "maplibre-gl@2.1.9/dist/maplibre-gl.js",
+  h3: {},
+  deck: "deck.gl@latest/dist.min.js"
+});
 
-csvLoader =
-  import('https://unpkg.com/@loaders.gl/csv@3.2.6/dist/esm/index.js?module')
-
-// https://deck.gl/docs/api-reference/extensions/data-filter-extension
-// deckExtensions = require('@deck.gl/extensions@8.8.6/dist/es5/index.js')
-//   .catch(() => window["_interopRequireDefault"]);
-
-// TODO - deckgl? or just maplibre?
+maplibregl = r("maplibregl").catch(() => window["maplibregl"]);
+deck = r("deck");
 
 // geoparquet + mapbox + deckgl:
 // https://observablehq.com/@kylebarron/geoparquet-on-the-web
@@ -48,9 +41,37 @@ csvLoader =
 // animated arcs:
 // https://observablehq.com/@yarynam/animated-deck-gl-arcs
 // https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs
+
 ```
 
 ```{ojs}
+//| label: inputs
+viewof selectedYear = Inputs.range([1950, 2021], {
+  label: "Since",
+  step: 1,
+  value: 2021
+});
+```
+
+```{ojs}
+//| label: arc-layer
+transferArcs = new deck.MapboxLayer({
+  id: "transferArcs",
+  type: deck.ArcLayer,
+  data: [],
+  getSourcePosition:
+    d => [Number(d.supplier_lon), Number(d.supplier_lat)],
+  getTargetPosition:
+    d => [Number(d.recipient_lon), Number(d.recipient_lat)],
+  getSourceColor: [0, 32, 64, 102],
+  getTargetColor: [0, 128, 255, 204],
+  // getWidth: d => d.count // scale?
+  getWidth: 2,
+})
+```
+
+```{ojs}
+//| label: map
 //| column: screen
 
 /* this is a bit different to regular mapbox/maplibre instantiation
@@ -59,7 +80,7 @@ csvLoader =
    (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */
    
 viewof map = {
-  let container = html`<div style='height:650px;' />`;
+  let container = html`<div style='height:750px;' />`;
 
   // Give the container dimensions.
   yield container;
@@ -73,35 +94,31 @@ viewof map = {
     style: "style.json"
   });
 
-  console.log(">>> Map created");
-
-  // whe nthe map loads, register it with ojs and add the csv layer
   map.on("load", () => {
     container.value = map;
     container.dispatchEvent(new CustomEvent("input"));
-    map.addLayer(new deck.MapboxLayer({
-      id: "transfers",
-      type: deck.ArcLayer,
-      data: "/data/sipri-exports-processed.csv",
-      loaders: [csvLoader.CSVLoader],
-      loadOptions: {
-        csv: {
-          delimiter: ",",
-          dynamicTyping: true,
-          skipEmptyLines: true
-        }
-      },
-      getSourcePosition:
-        d => [Number(d.supplier_lon), Number(d.supplier_lat)],
-      getTargetPosition:
-        d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-      getSourceColor: [255, 208, 0, 102],
-      getTargetColor: [0, 128, 255, 102],
-      // getWidth: d => d.count // scale?
-      getWidth: 2
-    }));
+
+    map.addLayer(transferArcs);
   });
+
+  console.log(">>> Map created");
 }
+```
+
+```{ojs}
+//| label: load-and-filter-data
+allTransfers = FileAttachment("/data/sipri-exports-processed.csv")
+  .csv({ typed: true });
+
+filteredTransfers = allTransfers.filter(t => t.year == selectedYear);
+
+console.log(allTransfers)
+console.log(filteredTransfers)
+```
+
+```{ojs}
+//| label: update-arcs
+transferArcs.setProps({ data: filteredTransfers });
 ```
 
 <!-- share/about popups -->
