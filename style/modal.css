@@ -127,6 +127,10 @@
 
   /* font-weight: bold; */
   font-size: smaller;
+
+  /* to maintain readability over a map */
+  z-index: 1000;
+  background: radial-gradient(ellipse at top right, white, transparent);
 }
 
 .modalpanel p {
@@ -145,6 +149,20 @@
   font-weight: bold;
 }
 
+/* extra tweaks for map underlay */
+
 #title-block-header {
+  padding: 8px;
   padding-right: 105px;
+  z-index: 1000;
+  background: radial-gradient(ellipse at top left, white, transparent);
+}
+
+body {
+  margin: 0;
+}
+
+form {
+  padding: 8px;
+  z-index: 1000;
 }

@@ -57,6 +57,7 @@ viewof selectedYear = Inputs.range([1950, 2021], {
 
 ```{ojs}
 //| label: arc-layer
+//| output: false
 transferArcs = new deck.MapboxLayer({
   id: "transferArcs",
   type: deck.ArcLayer,
@@ -74,7 +75,6 @@ transferArcs = new deck.MapboxLayer({
 
 ```{ojs}
 //| label: map
-//| column: screen
 
 /* this is a bit different to regular mapbox/maplibre instantiation
    it lets have the map react to other values in the document, like
@@ -82,7 +82,7 @@ transferArcs = new deck.MapboxLayer({
    (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */
    
 viewof map = {
-  let container = html`<div style='height:750px;' />`;
+  let container = html`<div style="position: absolute; left: 0; top: 0; height: 100vh; width: 100%;" />`;
 
   // Give the container dimensions.
   yield container;
@@ -92,7 +92,7 @@ viewof map = {
   let map = new maplibregl.Map({
     container,
     center: [40, 40],
-    zoom: 1,
+    zoom: 1.25,
     pitch: 60,
     style: "style.json"
   });
@@ -110,6 +110,7 @@ viewof map = {
 
 ```{ojs}
 //| label: load-and-filter-data
+//| output: false
 allTransfers = FileAttachment("/data/sipri-exports-processed.csv")
   .csv({ typed: true });
 
@@ -121,6 +122,7 @@ console.log(filteredTransfers)
 
 ```{ojs}
 //| label: update-arcs
+//| output: false
 transferArcs.setProps({ data: filteredTransfers });
 
 // maybe update map bounds based on bounds of filteredTransfers?
