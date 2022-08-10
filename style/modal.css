@@ -148,23 +148,3 @@
   color: #36a7e9;
   font-weight: bold;
 }
-
-/* extra tweaks for map underlay */
-
-#title-block-header {
-  padding: 8px;
-  padding-right: 105px;
-  z-index: 1000;
-  background: radial-gradient(ellipse at top left, white, transparent);
-}
-
-body {
-  margin: 0;
-}
-
-form {
-  position: relative;
-  background-color: #ffffffcc;
-  padding: 8px;
-  z-index: 1000;
-}
