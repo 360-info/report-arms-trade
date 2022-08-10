@@ -41,6 +41,7 @@ deck = r("deck");
 ```{ojs}
 //| label: inputs
 //| classes: "inputForm"
+//| layout-ncol: 3
 
 viewof selectedYear = Inputs.range([1950, 2021], {
   label: "Year",
@@ -48,8 +49,13 @@ viewof selectedYear = Inputs.range([1950, 2021], {
   value: 2021
 });
 
-
 viewof selectedCountry = Inputs.text({ label: "Who" });
+
+viewof layerType = Inputs.select(
+  ["Arcs", "Great circles"], {
+    label: "Layer type",
+    value: "Arcs"
+  });
 ```
 
 ```{ojs}
@@ -57,6 +63,7 @@ viewof selectedCountry = Inputs.text({ label: "Who" });
 //| output: false
 transferArcs = new deck.MapboxLayer({
   id: "transferArcs",
+  // type: deck.GreatCircleLayer, 
   type: deck.ArcLayer,
   data: [],
   getSourcePosition:
@@ -91,6 +98,7 @@ viewof map = {
     center: [40, 40],
     zoom: 1.25,
     pitch: 60,
+    // renderWorldCopies: false,
     style: "style.json"
   });
 
@@ -117,15 +125,16 @@ allTransfers = FileAttachment("/data/sipri-exports-processed.csv")
 filteredTransfers = allTransfers.filter(
   t => t.year == selectedYear && 
     (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||
-     t.recipient.toLowerCase().includes(selectedCountry.toLowerCase()))
-  );
+     t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));
+
+arcType = layerType == "Arcs" ? deck.ArcLayer : deck.GreatCircleLayer;
 ```
 
 ```{ojs}
 //| label: update-arcs
 //| output: false
 
-transferArcs.setProps({ data: filteredTransfers });
+transferArcs.setProps({ data: filteredTransfers, type: arcType });
 
 // TODO - maybe update map bounds based on bounds of currentYearTransfers?
 ```
