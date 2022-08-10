@@ -163,6 +163,8 @@ body {
 }
 
 form {
+  position: relative;
+  background-color: #ffffffcc;
   padding: 8px;
   z-index: 1000;
 }
