@@ -41,7 +41,6 @@ deck = r("deck");
 ```{ojs}
 //| label: inputs
 //| classes: "inputForm"
-//| layout-ncol: 3
 
 viewof selectedYear = Inputs.range([1950, 2021], {
   label: "Year",
@@ -56,25 +55,37 @@ viewof layerType = Inputs.select(
     label: "Layer type",
     value: "Arcs"
   });
+
+
 ```
 
 ```{ojs}
 //| label: arc-layer
 //| output: false
 transferArcs = new deck.MapboxLayer({
-  id: "transferArcs",
-  // type: deck.GreatCircleLayer, 
+  id: "transferArcs", 
   type: deck.ArcLayer,
   data: [],
   getSourcePosition:
     d => [Number(d.supplier_lon), Number(d.supplier_lat)],
   getTargetPosition:
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-  getSourceColor: [0, 32, 64, 102],
+  getSourceColor: [0, 0, 0, 102],
   getTargetColor: [0, 128, 255, 204],
   // getWidth: d => d.count // scale?
-  getWidth: 2
+  getWidth: 2,
+  // getHeight: 0.75,
+  pickable: true,
+  autoHighlight: true,
+  highlightColor: [255, 0, 0, 255]
 })
+```
+
+```{ojs}
+popup = new maplibregl.Popup({
+  closeButton: false,
+  closeOnClick: false
+});
 ```
 
 ```{ojs}
@@ -98,16 +109,43 @@ viewof map = {
     center: [40, 40],
     zoom: 1.25,
     pitch: 60,
-    // renderWorldCopies: false,
+    pickingRadius: 10,
+    antialias: true,
     style: "style.json"
   });
 
+  // on map load:
+  // - dispatch its value back to ojs
+  // - add the deck.gl layer to the map
+  // - add a prop to the layer that adds/removes a popup from the map
+  //   (we can't do this on initial layer def because the map isn't ready yet)
   map.on("load", () => {
     container.value = map;
     container.dispatchEvent(new CustomEvent("input"));
-
+    
     map.addLayer(transferArcs);
+
+    function updatePopup(info, event) {
+      if (info && info.object) {
+          // console.log(info);
+          console.log(event);
+          popup
+            .setLngLat(info.coordinate)
+            // set coordinates with event.center?
+            .setHTML(
+              `${info.object.supplier} → ${info.object.recipient}: ${info.object.count > 0 ? info.object.count : 0.5} million`)
+            .addTo(map);
+        } else {
+          popup.remove();
+        }
+    }
+
+    transferArcs.setProps({
+      onHover: updatePopup
+    });
+    
   });
+
 }
 ```
 
