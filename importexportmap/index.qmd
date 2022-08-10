@@ -1,5 +1,5 @@
 ---
-title: "Weapons trade"
+title: "Weapon imports & exports"
 subtitle: "And some additional comment here"
 page-layout: custom
 theme: none
