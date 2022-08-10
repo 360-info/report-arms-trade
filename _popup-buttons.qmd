@@ -10,11 +10,54 @@
   About
 </a>
 
+<a id="fullscreenButton" href="#">
+  <span class="fsoff">
+    <i class="bi bi-arrows-fullscreen"></i>
+    Full
+  </span>
+</a>
+
+<script>
+  window.addEventListener("load", () => {
+    document.querySelector("#fullscreenButton").addEventListener("click", e => {
+      e.preventDefault();
+      console.log("FS button clicked!");
+
+      var fsBtn = document.querySelector("#fullscreenButton");
+
+      if (fsBtn.classList.contains("fsmode")) {
+        // fullscreen is on: disable it
+        document.exitFullscreen();
+        fsBtn.classList.remove("fsmode")
+      } else {
+        // fullscreen is off: enable it
+        var rootEl = document.documentElement;
+
+        var requestMethod =
+          rootEl.requestFullScreen ||
+          rootEl.webkitRequestFullScreen ||
+          rootEl.mozRequestFullScreen ||
+          rootEl.msRequestFullScreen;
+
+          if (requestMethod) {
+            requestMethod.call(rootEl);
+            fsBtn.classList.add("fsmode");
+          } else {
+            alert("Fullscreen mode isn't supported on this browser.")
+          }
+      }
+
+      // Can also cancel the event and manually navigate
+      // window.location = e.target.href;
+      });
+  })
+</script>
+
 <!-- if there's room here, put credits on two lines:
   * Editor names, 360info (hint: put &shy; in the middle of long names!)
   * Data: ORG
   (if there isn't room, put it in the ABOUT dialog) -->
-Editor Name, 360info
+<!-- Editor Name, 360info
 
-Data: ORG
+Data: ORG -->
 :::
