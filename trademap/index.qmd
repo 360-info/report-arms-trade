@@ -51,6 +51,8 @@ viewof selectedYear = Inputs.range([1950, 2021], {
   step: 1,
   value: 2021
 });
+
+// viewof countrySearch = Inputs.search()
 ```
 
 ```{ojs}
@@ -89,8 +91,9 @@ viewof map = {
   // the container div
   let map = new maplibregl.Map({
     container,
-    center: [-74.5, 40],
-    zoom: 3,
+    center: [40, 40],
+    zoom: 1,
+    pitch: 60,
     style: "style.json"
   });
 
@@ -119,6 +122,8 @@ console.log(filteredTransfers)
 ```{ojs}
 //| label: update-arcs
 transferArcs.setProps({ data: filteredTransfers });
+
+// maybe update map bounds based on bounds of filteredTransfers?
 ```
 
 <!-- share/about popups -->
