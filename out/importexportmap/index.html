@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Weapon imports &amp; exports</title>
+<title>Weapon transfers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,8 +106,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <header id="title-block-header">
-<h1 class="title">Weapon imports &amp; exports</h1>
-<p class="subtitle">And some additional comment here</p>
+<h1 class="title">Weapon transfers</h1>
+<p class="subtitle">Where are arms going?</p>
 
 
 </header>
@@ -115,7 +115,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="modalpanel">
 <!-- check https://icons.getbootstrap.com for icons! -->
 <p><a href="#" data-micromodal-trigger="modal-useremix" tabindex="0"> <i class="bi bi-share-fill"></i> Share </a></p>
-<p><a href="#" data-micromodal-trigger="modal-about" tabindex="0"> <i class="bi bi-clipboard-data"></i> About </a></p>
+<p><a href="#" data-micromodal-trigger="modal-about" tabindex="0"> <i class="bi bi-info-circle-fill"></i> Info </a></p>
 <p><a id="fullscreenButton" href="#"> <span class="fsoff"> <i class="bi bi-arrows-fullscreen"></i> Full </span> </a></p>
 <script>
   window.addEventListener("load", () => {
@@ -312,26 +312,25 @@ Data: ORG -->
 <span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">updatePopup</span>(info<span class="op">,</span> <span class="bu">event</span>) {</span>
 <span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (info <span class="op">&amp;&amp;</span> info<span class="op">.</span><span class="at">object</span>) {</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>          <span class="co">// console.log(info);</span></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>          <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">event</span>)<span class="op">;</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>          popup</span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">setLngLat</span>(info<span class="op">.</span><span class="at">coordinate</span>)</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>            <span class="co">// set coordinates with event.center?</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">setHTML</span>(</span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>              <span class="vs">`</span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">supplier</span><span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">recipient</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">count</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">count</span> <span class="op">:</span> <span class="fl">0.5</span><span class="sc">}</span><span class="vs"> million`</span>)</span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>          popup<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="fu">setProps</span>({</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>      <span class="dt">onHover</span><span class="op">:</span> updatePopup</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>          <span class="co">// </span><span class="al">TODO</span><span class="co"> - set coordinates with event.center?</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>          popup</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">setLngLat</span>(info<span class="op">.</span><span class="at">coordinate</span>)</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">setHTML</span>(</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>              <span class="vs">`</span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">supplier</span><span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">recipient</span><span class="sc">}</span><span class="vs">&lt;/br&gt;</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="vs">              TIV </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">count</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"$"</span> <span class="op">+</span> info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">count</span> <span class="op">:</span> <span class="st">"&lt; $0.5"</span><span class="sc">}</span><span class="vs"> M`</span>)</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>          popup<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="fu">setProps</span>({</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>      <span class="dt">onHover</span><span class="op">:</span> updatePopup</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="map" class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
@@ -339,19 +338,19 @@ Data: ORG -->
 </div>
 </div>
 <div id="load-and-filter-data" class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="159" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 158;"><span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>allTransfers <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"sipri-exports-processed.csv"</span>)</span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="co">/* the dataset is filtered first by selected year, then by search term</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="co">   (we use a separate text input instead of the search's because we want to</span></span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="co">   retain the search term when the year changes) */</span></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>filteredTransfers <span class="op">=</span> allTransfers<span class="op">.</span><span class="fu">filter</span>(</span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>  t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">year</span> <span class="op">==</span> selectedYear <span class="op">&amp;&amp;</span> </span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>    (t<span class="op">.</span><span class="at">supplier</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>()) <span class="op">||</span></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>     t<span class="op">.</span><span class="at">recipient</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>())))<span class="op">;</span></span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>arcType <span class="op">=</span> layerType <span class="op">==</span> <span class="st">"Arcs"</span> <span class="op">?</span> deck<span class="op">.</span><span class="at">ArcLayer</span> <span class="op">:</span> deck<span class="op">.</span><span class="at">GreatCircleLayer</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="158" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 157;"><span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>allTransfers <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"sipri-exports-processed.csv"</span>)</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="co">/* the dataset is filtered first by selected year, then by search term</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="co">   (we use a separate text input instead of the search's because we want to</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="co">   retain the search term when the year changes) */</span></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>filteredTransfers <span class="op">=</span> allTransfers<span class="op">.</span><span class="fu">filter</span>(</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>  t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">year</span> <span class="op">==</span> selectedYear <span class="op">&amp;&amp;</span> </span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>    (t<span class="op">.</span><span class="at">supplier</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>()) <span class="op">||</span></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>     t<span class="op">.</span><span class="at">recipient</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>())))<span class="op">;</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>arcType <span class="op">=</span> layerType <span class="op">==</span> <span class="st">"Arcs"</span> <span class="op">?</span> deck<span class="op">.</span><span class="at">ArcLayer</span> <span class="op">:</span> deck<span class="op">.</span><span class="at">GreatCircleLayer</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="load-and-filter-data-1">
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -375,10 +374,10 @@ Data: ORG -->
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="176" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 175;"><span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">data</span><span class="op">:</span> filteredTransfers<span class="op">,</span> <span class="dt">type</span><span class="op">:</span> arcType })<span class="op">;</span></span>
-<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">TODO</span><span class="co"> - maybe update map bounds based on bounds of currentYearTransfers?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="175" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 174;"><span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a>transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">data</span><span class="op">:</span> filteredTransfers<span class="op">,</span> <span class="dt">type</span><span class="op">:</span> arcType })<span class="op">;</span></span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">TODO</span><span class="co"> - maybe update map bounds based on bounds of currentYearTransfers?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="update-arcs" class="cell-output cell-output-display hidden">
 <div id="ojs-cell-7" data-nodetype="expression">
 
@@ -448,10 +447,13 @@ style="border:none;"&gt;&lt;/iframe&gt;</code></pre>
 <button class="modal__close" aria-label="Close modal" data-micromodal-close="">
 </button>
 <header>
-<h2 id="modal-about-title" class="anchored">About</h2>
+<h2 id="modal-about-title" class="anchored">What do these numbers mean?</h2>
 </header>
 <div id="modal-about-content">
-<p>This is a great place to add some more notes on the data!</p>
+<p><strong>Trend Indicator Value</strong> (TIV) is a kind of price that SIPRI, the provider of this dataset, puts on arms transfers. It doesn’t measure the financial value of the arms transferred but rather the military capability they provide.</p>
+<p>This is important because different kinds of arms are developed over time, while others might change in price based on external factors.</p>
+<p>But the deadliness of a gun doesn’t typically change. The TIV helps us compare which countries are contributing or benefitting the most from arms transfers, and how a country’s transfers have change over time.</p>
+<p>To learn more about how these numbers are calculated, <a href="https://www.sipri.org/sites/default/files/files/FS/SIPRIFS1212.pdf"><strong>read SIPRI’s factsheet</strong></a>.</p>
 </div>
 </div>
 </div>
@@ -459,7 +461,7 @@ style="border:none;"&gt;&lt;/iframe&gt;</code></pre>
 
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\nr = require.alias({\n  maplibregl: \"maplibre-gl@2.1.9/dist/maplibre-gl.js\",\n  h3: {},\n  deck: \"deck.gl@latest/dist.min.js\"\n});\n\nmaplibregl = r(\"maplibregl\").catch(() => window[\"maplibregl\"]);\ndeck = r(\"deck\");\n\n/* animated arcs:\n   https://observablehq.com/@yarynam/animated-deck-gl-arcs\n   https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs */\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nviewof selectedYear = Inputs.range([1950, 2021], {\n  label: \"Year\",\n  step: 1,\n  value: 2021\n});\n\nviewof selectedCountry = Inputs.text({ label: \"Who\" });\n\nviewof layerType = Inputs.select(\n  [\"Arcs\", \"Great circles\"], {\n    label: \"Layer type\",\n    value: \"Arcs\"\n  });\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nwidthScale =\n  d3.scaleLinear()\n  .domain([0, 4500]) \n  .range([0.25, 30]);\n\ntransferArcs = new deck.MapboxLayer({\n  id: \"transferArcs\", \n  type: deck.ArcLayer,\n  data: [],\n  getSourcePosition:\n    d => [Number(d.supplier_lon), Number(d.supplier_lat)],\n  getTargetPosition:\n    d => [Number(d.recipient_lon), Number(d.recipient_lat)],\n  getSourceColor: [0, 0, 0, 102],\n  getTargetColor: [0, 128, 255, 204],\n  getWidth: d => widthScale(d.count),\n  pickable: true,\n  autoHighlight: true,\n  highlightColor: [255, 0, 0, 255]\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"popup = new maplibregl.Popup({\n  closeButton: false,\n  closeOnClick: false\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"\n/* this is a bit different to regular mapbox/maplibre instantiation\n   it lets have the map react to other values in the document, like\n   a button or a timer, without reinstantiating!\n   (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */\n   \nviewof map = {\n  let container = html`<div style=\"position: absolute; left: 0; top: 0; height: 100vh; width: 100%;\" />`;\n\n  // Give the container dimensions.\n  yield container;\n\n  // Create the \\`map\\` object with the mapboxgl.Map constructor, referencing\n  // the container div\n  let map = new maplibregl.Map({\n    container,\n    center: [40, 40],\n    zoom: 1.25,\n    pitch: 60,\n    pickingRadius: 10,\n    antialias: true,\n    style: \"style.json\"\n  });\n\n  // on map load:\n  // - dispatch its value back to ojs\n  // - add the deck.gl layer to the map\n  // - add a prop to the layer that adds/removes a popup from the map\n  //   (we can't do this on initial layer def because the map isn't ready yet)\n  map.on(\"load\", () => {\n    container.value = map;\n    container.dispatchEvent(new CustomEvent(\"input\"));\n    \n    map.addLayer(transferArcs);\n\n    function updatePopup(info, event) {\n      if (info && info.object) {\n          // console.log(info);\n          console.log(event);\n          popup\n            .setLngLat(info.coordinate)\n            // set coordinates with event.center?\n            .setHTML(\n              `${info.object.supplier} → ${info.object.recipient}: ${info.object.count > 0 ? info.object.count : 0.5} million`)\n            .addTo(map);\n        } else {\n          popup.remove();\n        }\n    }\n\n    transferArcs.setProps({\n      onHover: updatePopup\n    });\n    \n  });\n\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"\nallTransfers = FileAttachment(\"sipri-exports-processed.csv\")\n  .csv({ typed: true });\n\n/* the dataset is filtered first by selected year, then by search term\n   (we use a separate text input instead of the search's because we want to\n   retain the search term when the year changes) */\n\nfilteredTransfers = allTransfers.filter(\n  t => t.year == selectedYear && \n    (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||\n     t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));\n\narcType = layerType == \"Arcs\" ? deck.ArcLayer : deck.GreatCircleLayer;\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"\ntransferArcs.setProps({ data: filteredTransfers, type: arcType });\n\n// TODO - maybe update map bounds based on bounds of currentYearTransfers?\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"micro = require(\"micromodal@0.4.10\")\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n"},{"methodName":"interpretQuiet","source":"shinyInput('selectedYear')"},{"methodName":"interpretQuiet","source":"shinyInput('selectedCountry')"},{"methodName":"interpretQuiet","source":"shinyInput('layerType')"},{"methodName":"interpretQuiet","source":"shinyInput('map')"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\nr = require.alias({\n  maplibregl: \"maplibre-gl@2.1.9/dist/maplibre-gl.js\",\n  h3: {},\n  deck: \"deck.gl@latest/dist.min.js\"\n});\n\nmaplibregl = r(\"maplibregl\").catch(() => window[\"maplibregl\"]);\ndeck = r(\"deck\");\n\n/* animated arcs:\n   https://observablehq.com/@yarynam/animated-deck-gl-arcs\n   https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs */\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nviewof selectedYear = Inputs.range([1950, 2021], {\n  label: \"Year\",\n  step: 1,\n  value: 2021\n});\n\nviewof selectedCountry = Inputs.text({ label: \"Who\" });\n\nviewof layerType = Inputs.select(\n  [\"Arcs\", \"Great circles\"], {\n    label: \"Layer type\",\n    value: \"Arcs\"\n  });\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nwidthScale =\n  d3.scaleLinear()\n  .domain([0, 4500]) \n  .range([0.25, 30]);\n\ntransferArcs = new deck.MapboxLayer({\n  id: \"transferArcs\", \n  type: deck.ArcLayer,\n  data: [],\n  getSourcePosition:\n    d => [Number(d.supplier_lon), Number(d.supplier_lat)],\n  getTargetPosition:\n    d => [Number(d.recipient_lon), Number(d.recipient_lat)],\n  getSourceColor: [0, 0, 0, 102],\n  getTargetColor: [0, 128, 255, 204],\n  getWidth: d => widthScale(d.count),\n  pickable: true,\n  autoHighlight: true,\n  highlightColor: [255, 0, 0, 255]\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"popup = new maplibregl.Popup({\n  closeButton: false,\n  closeOnClick: false\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"\n/* this is a bit different to regular mapbox/maplibre instantiation\n   it lets have the map react to other values in the document, like\n   a button or a timer, without reinstantiating!\n   (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */\n   \nviewof map = {\n  let container = html`<div style=\"position: absolute; left: 0; top: 0; height: 100vh; width: 100%;\" />`;\n\n  // Give the container dimensions.\n  yield container;\n\n  // Create the \\`map\\` object with the mapboxgl.Map constructor, referencing\n  // the container div\n  let map = new maplibregl.Map({\n    container,\n    center: [40, 40],\n    zoom: 1.25,\n    pitch: 60,\n    pickingRadius: 10,\n    antialias: true,\n    style: \"style.json\"\n  });\n\n  // on map load:\n  // - dispatch its value back to ojs\n  // - add the deck.gl layer to the map\n  // - add a prop to the layer that adds/removes a popup from the map\n  //   (we can't do this on initial layer def because the map isn't ready yet)\n  map.on(\"load\", () => {\n    container.value = map;\n    container.dispatchEvent(new CustomEvent(\"input\"));\n    \n    map.addLayer(transferArcs);\n\n    function updatePopup(info, event) {\n      if (info && info.object) {\n          // TODO - set coordinates with event.center?\n          popup\n            .setLngLat(info.coordinate)\n            .setHTML(\n              `${info.object.supplier} → ${info.object.recipient}</br>\n              TIV ${info.object.count > 0 ? \"$\" + info.object.count : \"< $0.5\"} M`)\n            .addTo(map);\n        } else {\n          popup.remove();\n        }\n    }\n\n    transferArcs.setProps({\n      onHover: updatePopup\n    });\n    \n  });\n\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"\nallTransfers = FileAttachment(\"sipri-exports-processed.csv\")\n  .csv({ typed: true });\n\n/* the dataset is filtered first by selected year, then by search term\n   (we use a separate text input instead of the search's because we want to\n   retain the search term when the year changes) */\n\nfilteredTransfers = allTransfers.filter(\n  t => t.year == selectedYear && \n    (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||\n     t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));\n\narcType = layerType == \"Arcs\" ? deck.ArcLayer : deck.GreatCircleLayer;\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"\ntransferArcs.setProps({ data: filteredTransfers, type: arcType });\n\n// TODO - maybe update map bounds based on bounds of currentYearTransfers?\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"micro = require(\"micromodal@0.4.10\")\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n"},{"methodName":"interpretQuiet","source":"shinyInput('selectedYear')"},{"methodName":"interpretQuiet","source":"shinyInput('selectedCountry')"},{"methodName":"interpretQuiet","source":"shinyInput('layerType')"},{"methodName":"interpretQuiet","source":"shinyInput('map')"}]}
 </script>
 <script type="module">
 window._ojs.paths.runtimeToDoc = "../../importexportmap";

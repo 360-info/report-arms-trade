@@ -1,6 +1,6 @@
 ---
-title: "Weapon imports & exports"
-subtitle: "And some additional comment here"
+title: "Weapon transfers"
+subtitle: "Where are arms going?"
 page-layout: custom
 theme: none
 # this includes some default css for the titling, the bootstrap icons (since
@@ -130,13 +130,12 @@ viewof map = {
 
     function updatePopup(info, event) {
       if (info && info.object) {
-          // console.log(info);
-          console.log(event);
+          // TODO - set coordinates with event.center?
           popup
             .setLngLat(info.coordinate)
-            // set coordinates with event.center?
             .setHTML(
-              `${info.object.supplier} → ${info.object.recipient}: ${info.object.count > 0 ? info.object.count : 0.5} million`)
+              `${info.object.supplier} → ${info.object.recipient}</br>
+              TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M`)
             .addTo(map);
         } else {
           popup.remove();
