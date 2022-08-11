@@ -134,8 +134,8 @@ viewof map = {
           popup
             .setLngLat(info.coordinate)
             .setHTML(
-              `${info.object.supplier} → ${info.object.recipient}</br>
-              TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M`)
+              `<span class="title">${info.object.supplier} → ${info.object.recipient}</span></br>
+              TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M in ${info.object.year}`)
             .addTo(map);
         } else {
           popup.remove();
