@@ -19,8 +19,8 @@
   min-width: 350px;
   max-width: 800px;
   width: 90%;
-  max-height: 90vh;
-  top: 5vh;
+  max-height: 50vh;
+  top: 25vh;
   border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
@@ -130,7 +130,6 @@
 
   /* to maintain readability over a map */
   z-index: 1000;
-  background: radial-gradient(ellipse at top right, white, transparent);
 }
 
 .modalpanel p {

@@ -5,8 +5,9 @@ body {
 #title-block-header {
   padding: 8px;
   padding-right: 105px;
+  padding-bottom: 10px;
   z-index: 1000;
-  background: radial-gradient(ellipse at top left, white, transparent);
+  background-color: #ffffffcc;
 }
 
 .inputForm {
