@@ -15,6 +15,7 @@ body {
   bottom: 0px;
   background-color: #ffffffcc;
   padding: 8px;
-  width: calc(100vw - 16px)
+  width: calc(100vw - 16px);
+  margin-bottom: 0;
 }
 

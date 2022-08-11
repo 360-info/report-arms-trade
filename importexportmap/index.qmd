@@ -38,26 +38,27 @@ deck = r("deck");
    https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs */
 ```
 
+::: {.inputForm layout-ncol=3}
 ```{ojs}
-//| label: inputs
-//| classes: "inputForm"
-
 viewof selectedYear = Inputs.range([1950, 2021], {
   label: "Year",
   step: 1,
   value: 2021
 });
+```
 
+```{ojs}
 viewof selectedCountry = Inputs.text({ label: "Who" });
+```
 
+```{ojs}
 viewof layerType = Inputs.select(
   ["Arcs", "Great circles"], {
     label: "Layer type",
     value: "Arcs"
   });
-
-
 ```
+:::
 
 ```{ojs}
 //| label: arc-layer
