@@ -38,7 +38,7 @@ deck = r("deck");
    https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs */
 ```
 
-::: {.inputForm layout-ncol=3}
+::: {.inputForm}
 ```{ojs}
 viewof selectedYear = Inputs.range([1950, 2021], {
   label: "Year",
@@ -63,6 +63,13 @@ viewof layerType = Inputs.select(
 ```{ojs}
 //| label: arc-layer
 //| output: false
+widthScale =
+  d3.scaleLinear()
+  // d3.scalePow()
+  // .exponent(2)
+  .domain([0, 4500]) 
+  .range([0.25, 30]);
+
 transferArcs = new deck.MapboxLayer({
   id: "transferArcs", 
   type: deck.ArcLayer,
@@ -73,9 +80,7 @@ transferArcs = new deck.MapboxLayer({
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
   getSourceColor: [0, 0, 0, 102],
   getTargetColor: [0, 128, 255, 204],
-  // getWidth: d => d.count // scale?
-  getWidth: 2,
-  // getHeight: 0.75,
+  getWidth: d => widthScale(d.count),
   pickable: true,
   autoHighlight: true,
   highlightColor: [255, 0, 0, 255]
