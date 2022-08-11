@@ -235,6 +235,7 @@ current_transfer_centroids %>%
   # finally, ditch the NA rows (no export)
   filter(!is.na(count)) %>%
   write_csv(here("data", "sipri-exports-processed.csv")) %>%
+  write_csv(here("importexportmap", "sipri-exports-processed.csv")) %>%
   write_csv(here("data", "sipri-exports-processed.csv.gz")) ->
 all_transfer_centroids
 
@@ -269,3 +270,22 @@ st_write(
 
 # geojson compression?
 ```
+
+As a final check, let's have a look at the annual totals:
+
+```{r}
+all_transfer_centroids %>%
+  group_by(year) %>%
+    summarise(count_all = sum(count, na.rm = TRUE)) %>%
+    mutate(date = ymd(paste0(year, "-07-01"))) %>%
+    {
+      ggplot(.) +
+      aes(x = date, y = count_all / 1000) +
+      geom_line() +
+      geom_point() +
+      geom_smooth() +
+      labs(x = NULL, y = "TIV in $B")
+    }
+```
+
+This squares with the totals straight out of SIPRI's 

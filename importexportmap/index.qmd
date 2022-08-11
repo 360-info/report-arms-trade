@@ -16,7 +16,7 @@ execute:
   echo: false
 resources:
   - style.json
-  - /data/sipri-exports-processed.csv
+  - sipri-exports-processed.csv
 ---
 
 {{< include ../_popup-buttons.qmd >}}
@@ -153,7 +153,7 @@ viewof map = {
 //| label: load-and-filter-data
 //| output: false
 
-allTransfers = FileAttachment("/data/sipri-exports-processed.csv")
+allTransfers = FileAttachment("sipri-exports-processed.csv")
   .csv({ typed: true });
 
 /* the dataset is filtered first by selected year, then by search term
