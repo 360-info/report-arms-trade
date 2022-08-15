@@ -112,7 +112,6 @@ viewof map = {
     center: [15, 30],
     zoom: 1.25,
     pitch: 30,
-    pickingRadius: 10,
     antialias: true,
     style: "style.json"
   });
@@ -130,21 +129,24 @@ viewof map = {
 
     function updatePopup(info, event) {
       if (info && info.object) {
-          // TODO - set coordinates with event.center?
-          popup
-            .setLngLat(info.coordinate)
-            .setHTML(
-              `<span class="title">${info.object.supplier} → ${info.object.recipient}</span></br>
-              TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M in ${info.object.year}`)
-            .addTo(map);
-        } else {
-          popup.remove();
-        }
+        // TODO - set coordinates with event.center?
+        popup
+          .setLngLat(info.coordinate)
+          .setHTML(
+            `<span class="title">${info.object.supplier} → ${info.object.recipient}</span></br>
+            TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M in ${info.object.year}`)
+          .addTo(map);
+      } else {
+        popup.remove();
+      }
     }
 
-    transferArcs.setProps({
-      onHover: updatePopup
-    });
+    // attach our hover updater to the layer (can't do this until after the
+    // layer is itself attached)
+    transferArcs.setProps({ onHover: updatePopup });
+
+    // also configure the automatically-create deck instance
+    transferArcs.deck.setProps({ pickingRadius: 10 });
     
   });
 
