@@ -117,6 +117,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="#" data-micromodal-trigger="modal-useremix" tabindex="0"> <i class="bi bi-share-fill"></i> Share </a></p>
 <p><a href="#" data-micromodal-trigger="modal-about" tabindex="0"> <i class="bi bi-info-circle-fill"></i> Info </a></p>
 <p><a id="fullscreenButton" href="#"> <span class="fsoff"> <i class="bi bi-arrows-fullscreen"></i> Full </span> </a></p>
+<!-- full screen button script -->
 <script>
   window.addEventListener("load", () => {
     document.querySelector("#fullscreenButton").addEventListener("click", e => {
@@ -146,10 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             alert("Fullscreen mode isn't supported on this browser.")
           }
       }
-
-      // Can also cancel the event and manually navigate
-      // window.location = e.target.href;
-      });
+    });
   })
 </script>
 <!-- if there's room here, put credits on two lines:
@@ -160,6 +158,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 Data: ORG -->
 </div>
+<!-- finally, here's the EDITOR SHARE button. it's a quick way to copy the
+     embed code for editors and will only appear if ?edshare=true is in the
+     url (that way it'll appear on the newswire but not subsequent shares) -->
+<div id="edshare">
+  <i id="edshare-icon" class="bi bi-clipboard-fill"></i>
+  <div>
+    <h4 id="edshare-title" class="anchored">GET THE STORY</h4>
+    <p id="edshare-description">Click to copy this into your story</p>
+  </div>
+</div>
+<!-- editor share banner: enable if ?edshare is in the url -->
+<script>
+  window.addEventListener("load", () => {
+    pageURL = new URL(window.location.href);
+    edshare = pageURL.searchParams.get("edshare");
+    if (edshare !== null) {
+    
+      edshareBtn = document.querySelector("#edshare");
+      edshareBtn.classList.add("ready");
+    
+    edshareBtn.addEventListener("click", () => {
+
+      // TODO - actual embed text
+      navigator.clipboard.writeText("Oh hello!");
+
+      edshareBtn.classList.remove("ready");
+      edshareBtn.classList.add("clicked");
+
+      edshareIcon = document.querySelector("#edshare-icon");
+      edshareIcon.classList.remove("bi-clipboard-fill");
+      edshareIcon.classList.add("bi-check");
+
+      edshareTitle = document.querySelector("#edshare-title");
+      edshareTitle.innerText = "COPIED!";
+
+      edshareDescription = document.querySelector("#edshare-description");
+      edshareDescription.innerHTML =
+        `Paste this interactive with the <i class="bi bi-code-square"></i> Embed button in your story editor.`;
+
+      setTimeout(() => { 
+          edshareBtn.classList.add("done");
+      }, 5000)
+    })
+
+    }
+
+
+  });
+</script>
 <div id="libraries" class="cell">
 <div class="sourceCode cell-code hidden" id="cb1" data-startfrom="27" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 26;"><span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> require<span class="op">.</span><span class="fu">alias</span>({</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maplibregl</span><span class="op">:</span> <span class="st">"maplibre-gl@2.1.9/dist/maplibre-gl.js"</span><span class="op">,</span></span>
