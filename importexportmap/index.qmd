@@ -52,12 +52,6 @@ viewof selectedYear = Inputs.range([1950, 2021], {
 });
 
 viewof selectedCountry = Inputs.text({ label: "Who" });
-
-viewof layerType = Inputs.select(
-  ["Arcs", "Great circles"], {
-    label: "Layer type",
-    value: "Arcs"
-  });
 ```
 
 ```{ojs}
@@ -173,15 +167,13 @@ filteredTransfers = allTransfers.filter(
   t => t.year == selectedYear && 
     (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||
      t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));
-
-arcType = layerType == "Arcs" ? deck.ArcLayer : deck.GreatCircleLayer;
 ```
 
 ```{ojs}
 //| label: update-arcs
 //| output: false
 
-transferArcs.setProps({ data: filteredTransfers, type: arcType });
+transferArcs.setProps({ data: filteredTransfers });
 
 // TODO - maybe update map bounds based on bounds of currentYearTransfers?
 ```
