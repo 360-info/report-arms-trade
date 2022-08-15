@@ -97,9 +97,11 @@ Data: SIPRI
     
       edshareBtn.addEventListener("click", () => {
 
+        // copy the embed code to the clipboard
         navigator.clipboard.writeText(
           `{{< var embed.before >}}{{< var embed.url >}}?edshare{{< var embed.after >}}`);
 
+        // update button styles and content
         edshareBtn.classList.remove("ready");
         edshareBtn.classList.add("clicked");
 
@@ -116,6 +118,7 @@ Data: SIPRI
           
           Please remember to <strong>attribute 360info and our data sources.</strong>`
 
+        // button exit animation
         setTimeout(() => {  edshareBtn.classList.add("done"); }, 5000);
         setTimeout(() => {  edshareBtn.style.display = "none"; }, 7000);
       });
