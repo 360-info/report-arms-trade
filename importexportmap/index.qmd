@@ -1,6 +1,5 @@
 ---
-title: "Weapon transfers"
-subtitle: "Where are arms going?"
+title: '[Suppliers]{style="color: #0d0887; background-color: #0d088733; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;"} and [recipients]{style="color:#e01455; background-color: #e0145533; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;"} of international arms transfers'
 page-layout: custom
 theme: none
 # this includes some default css for the titling, the bootstrap icons (since
@@ -18,6 +17,9 @@ resources:
   - style.json
   - sipri-exports-processed.csv
 ---
+
+13, 8, 135, 180
+224, 20, 85, 180
 
 {{< include ../_popup-buttons.qmd >}}
 
@@ -75,12 +77,14 @@ transferArcs = new deck.MapboxLayer({
     d => [Number(d.supplier_lon), Number(d.supplier_lat)],
   getTargetPosition:
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-  getSourceColor: [0, 0, 0, 102],
-  getTargetColor: [0, 128, 255, 204],
+  // getSourceColor: [0, 0, 0, 204],
+  // getTargetColor: [0, 128, 255, 204],
+  getSourceColor: [13, 8, 135, 180],
+  getTargetColor: [224, 20, 85, 180],
   getWidth: d => widthScale(d.count),
   pickable: true,
   autoHighlight: true,
-  highlightColor: [255, 0, 0, 255]
+  highlightColor: [255, 200, 0, 255]
 })
 ```
 
