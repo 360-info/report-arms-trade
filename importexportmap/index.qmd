@@ -138,7 +138,8 @@ viewof map = {
           .setLngLat(info.coordinate)
           .setHTML(
             `<span class="title">${info.object.supplier} → ${info.object.recipient}</span></br>
-            TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M in ${info.object.year}`)
+            TIV ${info.object.count > 0 ? "$" + info.object.count : "< $0.5"} M in ${info.object.year}</br>
+            <a href="#" data-micromodal-trigger="modal-about"><i class="bi bi-info-circle-fill"></i> What is TIV?</a>`)
           .addTo(map);
       } else {
         popup.remove();
