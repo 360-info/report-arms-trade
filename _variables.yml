@@ -1,0 +1,7 @@
+# alter url for production
+embed:
+  before: |
+    &lt;iframe src=&quot;
+  url: https://draft.report-arms-trade.pages.dev/importexportmap
+  after: |
+    &quot; title="..." style="width:100%; height:500px; border:none;" scrolling="no">&lt;/iframe&gt;

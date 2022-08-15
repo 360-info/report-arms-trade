@@ -178,33 +178,32 @@ Data: ORG -->
       edshareBtn = document.querySelector("#edshare");
       edshareBtn.classList.add("ready");
     
-    edshareBtn.addEventListener("click", () => {
+      edshareBtn.addEventListener("click", () => {
 
-      // TODO - actual embed text
-      navigator.clipboard.writeText("Oh hello!");
+        navigator.clipboard.writeText(
+          `<iframe src="https://draft.report-arms-trade.pages.dev/importexportmap?edshare" title="…" style="width:100%; height:500px; border:none;" scrolling="no"></iframe>`);
 
-      edshareBtn.classList.remove("ready");
-      edshareBtn.classList.add("clicked");
+        edshareBtn.classList.remove("ready");
+        edshareBtn.classList.add("clicked");
 
-      edshareIcon = document.querySelector("#edshare-icon");
-      edshareIcon.classList.remove("bi-clipboard-fill");
-      edshareIcon.classList.add("bi-check");
+        edshareIcon = document.querySelector("#edshare-icon");
+        edshareIcon.classList.remove("bi-clipboard-fill");
+        edshareIcon.classList.add("bi-check");
 
-      edshareTitle = document.querySelector("#edshare-title");
-      edshareTitle.innerText = "COPIED!";
+        edshareTitle = document.querySelector("#edshare-title");
+        edshareTitle.innerText = "COPIED!";
 
-      edshareDescription = document.querySelector("#edshare-description");
-      edshareDescription.innerHTML =
-        `Paste this interactive with the <i class="bi bi-code-square"></i> Embed button in your story editor.`;
+        edshareDescription = document.querySelector("#edshare-description");
+        edshareDescription.innerHTML =
+          `Paste this interactive with the <i class="bi bi-code-square"></i> Embed button in your story editor.</br></br>
+          
+          Please remember to <strong>attribute 360info and our data sources.</strong>`
 
-      setTimeout(() => { 
-          edshareBtn.classList.add("done");
-      }, 5000)
-    })
-
+        setTimeout(() => { 
+            edshareBtn.classList.add("done");
+        }, 5000)
+      });
     }
-
-
   });
 </script>
 <div id="libraries" class="cell">
@@ -464,17 +463,9 @@ Data: ORG -->
 <p>These charts, as well as the analyses that underpin them, are available under a <a href="https://creativecommons.org/licenses/by/4.0"><strong>Creative Commons Attribution 4.0 licence</strong></a>.</p>
 <p>Please acknowledge <a href="https://360info.org">360info</a> and our data sources when you use these charts and data.</p>
 <h4 id="embed-this-chart-in-your-article" class="anchored">Embed this chart in your article</h4>
-<p>Copy and paste the following code:</p>
+<p>Copy and the following code and paste it into your story editor using the <i class="bi bi-code-square"></i> Embed button:</p>
 <div class="embedcode">
-<pre><code>&lt;iframe
-src="https://360info-studentflows.pages.dev/
-embed-netflow-scatter" title="Chart with Human
-Development Index increasing to the right and Net
-Student Ratio increasing upward. Countries situated
-above the line, in blue, are receiving more
-students from other countries than they send out."
-width="550" height="560" scrolling="no"
-style="border:none;"&gt;&lt;/iframe&gt;</code></pre>
+<pre><code>&lt;iframe src="https://draft.report-arms-trade.pages.dev/importexportmap" title="…" style="width:100%; height:500px; border:none;" scrolling="no"&gt;&lt;/iframe&gt;</code></pre>
 </div>
 <p>This content is subject to <a href="https://newshub.360info.org/page/terms">360info’s Terms of Use</a>.</p>
 <h4 id="get-the-data-and-code" class="anchored">Get the data and code</h4>

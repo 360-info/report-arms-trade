@@ -85,32 +85,31 @@ Data: ORG -->
       edshareBtn = document.querySelector("#edshare");
       edshareBtn.classList.add("ready");
     
-    edshareBtn.addEventListener("click", () => {
+      edshareBtn.addEventListener("click", () => {
 
-      // TODO - actual embed text
-      navigator.clipboard.writeText("Oh hello!");
+        navigator.clipboard.writeText(
+          `{{< var embed.before >}}{{< var embed.url >}}?edshare{{< var embed.after >}}`);
 
-      edshareBtn.classList.remove("ready");
-      edshareBtn.classList.add("clicked");
+        edshareBtn.classList.remove("ready");
+        edshareBtn.classList.add("clicked");
 
-      edshareIcon = document.querySelector("#edshare-icon");
-      edshareIcon.classList.remove("bi-clipboard-fill");
-      edshareIcon.classList.add("bi-check");
+        edshareIcon = document.querySelector("#edshare-icon");
+        edshareIcon.classList.remove("bi-clipboard-fill");
+        edshareIcon.classList.add("bi-check");
 
-      edshareTitle = document.querySelector("#edshare-title");
-      edshareTitle.innerText = "COPIED!";
+        edshareTitle = document.querySelector("#edshare-title");
+        edshareTitle.innerText = "COPIED!";
 
-      edshareDescription = document.querySelector("#edshare-description");
-      edshareDescription.innerHTML =
-        `Paste this interactive with the <i class="bi bi-code-square"></i> Embed button in your story editor.`;
+        edshareDescription = document.querySelector("#edshare-description");
+        edshareDescription.innerHTML =
+          `Paste this interactive with the <i class="bi bi-code-square"></i> Embed button in your story editor.</br></br>
+          
+          Please remember to <strong>attribute 360info and our data sources.</strong>`
 
-      setTimeout(() => { 
-          edshareBtn.classList.add("done");
-      }, 5000)
-    })
-
+        setTimeout(() => { 
+            edshareBtn.classList.add("done");
+        }, 5000)
+      });
     }
-
-
   });
 </script>
