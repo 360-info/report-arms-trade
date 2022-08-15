@@ -25,6 +25,20 @@ h1.title {
   margin-block-end: 0.2em
 }
 
+/* shrink title at smaller widths */
+
+@media (max-width: 45em) {
+  h1.title {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 34em) {
+  h1.title {
+    font-size: 1.1em;
+  }
+}
+
 p.subtitle {
   font-weight: 700;
   margin-block-end: 0
