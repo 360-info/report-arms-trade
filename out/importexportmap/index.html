@@ -113,10 +113,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="modalpanel">
+<div class="modalpanelitems">
 <!-- check https://icons.getbootstrap.com for icons! -->
-<p><a href="#" data-micromodal-trigger="modal-useremix" tabindex="0"> <i class="bi bi-share-fill"></i> Share </a></p>
-<p><a href="#" data-micromodal-trigger="modal-about" tabindex="0"> <i class="bi bi-info-circle-fill"></i> Info </a></p>
-<p><a id="fullscreenButton" href="#"> <span class="fsoff"> <i class="bi bi-arrows-fullscreen"></i> Full </span> </a></p>
+
+<a href="#" data-micromodal-trigger="modal-useremix" tabindex="0">
+  <i class="bi bi-share-fill"></i>
+</a>
+
+<a href="#" data-micromodal-trigger="modal-about" tabindex="0">
+  <i class="bi bi-info-circle-fill"></i>
+</a>
+
+<a id="fullscreenButton" href="#">
+  <span class="fsoff">
+    <i class="bi bi-arrows-fullscreen"></i>
+  </span>
+</a>
+
 <!-- full screen button script -->
 <script>
   window.addEventListener("load", () => {
@@ -150,13 +163,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     });
   })
 </script>
+</div>
 <!-- if there's room here, put credits on two lines:
   * Editor names, 360info (hint: put &shy; in the middle of long names!)
   * Data: ORG
   (if there isn't room, put it in the ABOUT dialog) -->
-<!-- Editor Name, 360info
-
-Data: ORG -->
+<p>James Goldie, 360info</p>
+<p>Data: SIPRI</p>
 </div>
 <!-- finally, here's the EDITOR SHARE button. it's a quick way to copy the
      embed code for editors and will only appear if ?edshare=true is in the
@@ -173,7 +186,10 @@ Data: ORG -->
   window.addEventListener("load", () => {
     pageURL = new URL(window.location.href);
     edshare = pageURL.searchParams.get("edshare");
-    if (edshare !== null) {
+    
+    if (edshare === null) {
+      edshareBtn.style.display = "none";
+    } else {
     
       edshareBtn = document.querySelector("#edshare");
       edshareBtn.classList.add("ready");
@@ -199,9 +215,8 @@ Data: ORG -->
           
           Please remember to <strong>attribute 360info and our data sources.</strong>`
 
-        setTimeout(() => { 
-            edshareBtn.classList.add("done");
-        }, 5000)
+        setTimeout(() => {  edshareBtn.classList.add("done"); }, 5000);
+        setTimeout(() => {  edshareBtn.style.display = "none"; }, 7000);
       });
     }
   });
