@@ -18,9 +18,6 @@ resources:
   - sipri-exports-processed.csv
 ---
 
-13, 8, 135, 180
-224, 20, 85, 180
-
 {{< include ../_popup-buttons.qmd >}}
 
 ```{ojs}
@@ -45,13 +42,20 @@ deck = r("deck");
 //| label: inputs
 //| classes: inputForm
 
+viewof selectedCountry = Inputs.text({ 
+  label: "Who",
+  placeholder: "Country or group name",
+  width: "100%" });
+
+// i've added some extra css styling on this one by targeting
+// .inputForm input[type="number"]
 viewof selectedYear = Inputs.range([1950, 2021], {
   label: "Year",
   step: 1,
-  value: 2021
+  value: 2021,
+  width: "100%"
 });
 
-viewof selectedCountry = Inputs.text({ label: "Who" });
 ```
 
 ```{ojs}
@@ -71,8 +75,6 @@ transferArcs = new deck.MapboxLayer({
     d => [Number(d.supplier_lon), Number(d.supplier_lat)],
   getTargetPosition:
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-  // getSourceColor: [0, 0, 0, 204],
-  // getTargetColor: [0, 128, 255, 204],
   getSourceColor: [13, 8, 135, 180],
   getTargetColor: [224, 20, 85, 180],
   getWidth: d => widthScale(d.count),
@@ -164,7 +166,7 @@ allTransfers = FileAttachment("sipri-exports-processed.csv")
    retain the search term when the year changes) */
 
 filteredTransfers = allTransfers.filter(
-  t => t.year == selectedYear && 
+  t => t.year == Number(selectedYear) && 
     (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||
      t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));
 ```
