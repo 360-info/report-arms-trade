@@ -19,6 +19,18 @@ p.subtitle {
   margin-block-start: 0
 }
 
+@media (max-width: 45em) {
+  h1.title {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 34em) {
+  h1.title {
+    font-size: 1.1em;
+  }
+}
+
 h1.title {
   font-weight: 900;
   color: #333333;
