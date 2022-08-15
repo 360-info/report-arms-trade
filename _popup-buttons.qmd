@@ -88,11 +88,11 @@ Data: SIPRI
     pageURL = new URL(window.location.href);
     edshare = pageURL.searchParams.get("edshare");
     
+    edshareBtn = document.querySelector("#edshare");
     if (edshare === null) {
       edshareBtn.style.display = "none";
     } else {
     
-      edshareBtn = document.querySelector("#edshare");
       edshareBtn.classList.add("ready");
     
       edshareBtn.addEventListener("click", () => {
