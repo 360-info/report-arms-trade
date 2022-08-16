@@ -42,6 +42,12 @@ deck = r("deck");
 //| label: inputs
 //| classes: inputForm
 
+filterSummary = filteredTransferCount > 0 ?
+  md`**${filteredTransferCount}** transfers selected totalling at least **$${filteredTransferSum > 1000 ? (filteredTransferSum / 1000) + " billion" : filteredTransferSum + " million" }** TIV` :
+  md`No transfers selected`;
+
+html`<a href="#" data-micromodal-trigger="modal-about" style="font-size:smaller"><i class="bi bi-info-circle-fill"></i> What is TIV?</a>`
+
 viewof selectedCountry = Inputs.text({ 
   label: "Who",
   placeholder: "Country or group name",
@@ -75,9 +81,10 @@ transferArcs = new deck.MapboxLayer({
     d => [Number(d.supplier_lon), Number(d.supplier_lat)],
   getTargetPosition:
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
-  getSourceColor: [13, 8, 135, 180],
-  getTargetColor: [224, 20, 85, 180],
+  getSourceColor: d => [13, 8, 135, 180],
+  getTargetColor: d => [224, 20, 85, 180],
   getWidth: d => widthScale(d.count),
+  getTilt: d => Number(d.supplier_lon) > Number(d.recipient_lon) ? 15 : -15,
   pickable: true,
   autoHighlight: true,
   highlightColor: [255, 200, 0, 255]
@@ -169,6 +176,18 @@ filteredTransfers = allTransfers.filter(
   t => t.year == Number(selectedYear) && 
     (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||
      t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));
+
+filteredTransferCount =
+  filteredTransfers.map(d => d.count).length;
+filteredTransferSum = {
+  const tivsToSum = filteredTransfers.map(d => d.count);
+  if (tivsToSum.length > 0) {
+    return tivsToSum.reduce((x, y) => x + y);
+  } else {
+    return 0;
+  }
+}
+  
 ```
 
 ```{ojs}
