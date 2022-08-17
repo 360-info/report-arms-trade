@@ -35,3 +35,9 @@ body {
   text-transform: uppercase;
   font-size: larger;
 }
+
+/* my very lazy way to colorise a range slider */
+input[type=range] {
+  filter: sepia(100%) saturate(265%) hue-rotate(160deg);
+}
+ 
