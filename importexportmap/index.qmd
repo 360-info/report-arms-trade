@@ -18,7 +18,7 @@ resources:
   - sipri-exports-processed.csv
 ---
 
-{{< include ../_popup-buttons.qmd >}}
+{{< include _popup-buttons.qmd >}}
 
 ```{ojs}
 //| label: libraries
@@ -210,4 +210,4 @@ transferArcs.setProps({ data: filteredTransfers });
 
 <!-- share/about popups -->
 
-{{< include ../_popup-dialogs.qmd >}}
+{{< include _popup-dialogs.qmd >}}
