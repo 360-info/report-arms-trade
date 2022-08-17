@@ -1,6 +1,6 @@
-# 360info report template
+# Arms transfers
 
-What's this report all about? What kind of charts or analysis have we done?
+Visualises arms transfers between groups from 1950 to 2021.
 
 ## Use + Remix rights
 
@@ -12,7 +12,7 @@ These charts, as well as the analyses that underpin them, are available under a 
 
 Data in these charts comes from:
 
-* Data sources here (with links!)
+* [Stockholm International Peace Research Institute](https://sipri.org)
 
 **Please attribute 360info and the data sources when you use and remix these visualisations.**
 
@@ -38,4 +38,4 @@ quarto render
 
 <!-- replace `report-template` with the name of this repo in the link below  -->
 
-If you find any problems with our analysis or charts, please feel free to [create an issue](https://github.com/360-info/report-template/issues/new)!
+If you find any problems with our analysis or charts, please feel free to [create an issue](https://github.com/360-info/report-arms-trade/issues/new)!

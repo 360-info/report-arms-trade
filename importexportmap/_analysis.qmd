@@ -32,7 +32,7 @@ read_tidy_single_exporter <- function(path) {
     filter(!is.na(recipient)) %>%
     # (years that are all empty read in as logical, not numeric. drop 'em)
     select(recipient, where(is.numeric)) %>%
-    pivot_longer(cols = -recipient, names_to = "year", values_to = "count")
+    pivot_longer(cols = -recipient, names_to = "year", values_to = "value")
 }
 
 # extract_supplier: extract the country name from the first line of a sipri
@@ -84,11 +84,11 @@ all_data %>%
     # and finally merge the attempts
     supplier_cown = coalesce(supp_code_firstpass, supp_code_secondpass),
     recipient_cown = coalesce(recp_code_firstpass, recp_code_secondpass)) %>%
-  select(supplier, recipient, year, count, ends_with("cown")) ->
+  select(supplier, recipient, year, value, ends_with("cown")) ->
 matched_countries
 ```
 
-Let's see how many groups we successfully matched to a country with this process:
+Let's see how many groups we didn't successfully match to a country with this process:
 
 ```{r}
 #| label: skim-country-matches
@@ -106,15 +106,36 @@ matched_countries %>%
 
 Some of these, like the EU, UN, NATO, OSCE, RSS and AU, are groups that don't necessarily have a physical domain. Nor do "Unknown recipient(s)" (although "Unknown rebel group*" potentially could, depending on the context).
 
-Some we can fix up manually:
+We're going to manually allocate all these groups simulated cowcodes (> 50000) that we'll use to assign them locations, so that they can be represented on the map.
 
-- Western Sahara
-- Palestine
-- Hamas (Palestine)
-- Biafra
-- Katanga
-- Micronesia
-- Serbia
+```{r}
+matched_countries %>%
+  mutate(
+    supplier_cown = case_when(
+      supplier == "Aruba" ~ 50001,
+      supplier == "Serbia" ~ 50002,
+      supplier == "European Union**" ~ 50003,
+      supplier == "United Nations**" ~ 50004,
+      supplier == "Unknown supplier(s)" ~ 50005,
+      TRUE ~ supplier_cown),
+    recipient_cown = case_when(
+      recipient == "Western Sahara" ~ 50006,
+      recipient == "OSCE**" ~ 50007,
+      recipient == "Micronesia" ~ 50008,
+      recipient == "Katanga" ~ 50009,
+      recipient == "NATO**" ~ 50010,
+      recipient == "United Nations**" ~ 50004,
+      recipient == "Serbia" ~ 50002,
+      recipient == "Unknown recipient(s)" ~ 50011,
+      recipient == "African Union**" ~ 50012,
+      recipient == "Palestine" ~ 50013,
+      recipient == "Biafra" ~ 50014,
+      recipient == "Hamas (Palestine)*" ~ 50015,
+      recipient == "Regional Security System**" ~ 50016,
+      recipient == "Unknown rebel group*" ~ 50017,
+      TRUE ~ recipient_cown)) ->
+matched_countries_patched
+```
 
 Now, let's get the geometry for these countries. [The `cshapes` package](https://icr.ethz.ch/data/cshapes) keeps historical country boundaries. This is really handy, since our arms trade data goes back to 1950, and countries have shifted over time.
 
@@ -125,11 +146,11 @@ Let's split the data up into before and after 2019:
 ```{r}
 #| label: split-historical-current
 
-matched_countries %>%
+matched_countries_patched %>%
   filter(year <= 2019) ->
 historical_transfers
 
-matched_countries %>%
+matched_countries_patched %>%
   filter(year > 2019) ->
 current_transfers
 ```
@@ -137,22 +158,58 @@ current_transfers
 Now we'll get historical country centroids from `cshapes` and merge them into our historical transfers data using the numerical Correlates of War code:
 
 ```{r}
-#| label: merge-historical
+#| label: spatial-info
 
 sf::sf_use_s2(FALSE)
 
-shapes_all_full <-
-  cshp(useGW = FALSE, dependencies = TRUE) %>%
+# some groups or orgs don't have cowcodes. we're going to give them pretend cow
+# cow codes in order to simplify allocate them points. we'll remove the
+# pretend cow codes at the end
+
+simulated_cowcodes <- tribble(
+  ~ cowcode, ~ lat,     ~ lon,
+  50001,     12.518611, -70.035833,       # aruba
+  50002,     44.066907, 20.752988,        # serbia
+  50003,     48.583333, 7.745833,         # eu: strasbourg (to avoid nato)
+  50004,     40.712778, -74.006111,       # un: new york
+  50005,     82.039274, 36.547117,        # unknown: arctic ocean
+  50006,     24.549493, 13.766632,        # western sahara
+  50007,     49.814444, 6.131667,         # ocse: luxembourg
+  50008,     6.917222,  158.158889,       # micronesia: palikir
+  50009,     -8.686988, 25.500549,        # katanga
+  50010,     50.846667, 4.3525,           # nato: brussels
+  50011,     82.039274, 36.547117,        # unknown supplier: arctic ocean
+  50012,     9.03,      38.74,            # african union: addis ababa
+  50013,     31.533333, 35.095,           # palestine: hebron
+  50014,     5.608305,  7.818539,         # biafra
+  50015,     31.533333, 35.095,           # hamas (palestine): hebron
+  50016,     13.074722, -59.4925,         # rss: barbados
+  50017,     82.039274, 46.547117,        # unknown recipient: arctic ocean
+) %>%
+  mutate(start = as.Date("1950-01-01"), end = as.Date("2019-12-31"))
+
+# we'll add those sinmulated groups to our country centroids
+cshp(useGW = FALSE, dependencies = TRUE) %>%
   st_centroid(of_largest_polygon = TRUE) %>%
   mutate(centre = st_coordinates(geometry)) %>%
   as_tibble() %>%
   mutate(lon = centre[, 1], lat = centre[, 2]) %>%
-  select(cowcode, start, end, lon, lat)
+  select(cowcode, start, end, lon, lat) %>%
+  mutate(
+    # note that a couple of groups need be moved to make the data clearer:
+    # cown 666 - israel, plo (israel), pij (isreal/palestine): to tel aviv
+    lat = case_when(cowcode == 666L ~ 32.08, TRUE ~ lat),
+    lon = case_when(cowcode == 666L ~ 34.78, TRUE ~ lon)) %>%
+  bind_rows(simulated_cowcodes) ->
+shapes_all_full
 
 # join twice: first by supplier, then by recipient
 historical_transfers %>%
   mutate(transfer_date = ymd(paste0(year, "-01-01"))) %>%
   left_join(shapes_all_full, by = c("supplier_cown" = "cowcode")) %>%
+  # filter(supplier == "European Union**") %>% glimpse()
+  # NOTE - groups with no boundary (eg. intl. orgs) are lost here. we need to add
+  # them back ourselves
   filter(transfer_date >= start, transfer_date < end) %>%
   select(-start, -end) %>%
   rename(supplier_lon = lon, supplier_lat = lat) %>%
@@ -161,6 +218,7 @@ historical_transfers %>%
   select(-start, -end) %>%
   rename(recipient_lon = lon, recipient_lat = lat) ->
 historical_transfer_centroids
+  
 ```
 
 For data since 2020, we'll need to assume current political boundaries. If we want to use another dataset for current boundaries, we'll likely need an ISO3 code rather than a COW code. But not all suppliers and recipients have one:
@@ -177,7 +235,7 @@ current_transfers %>%
   filter(
     (is.na(supplier_iso3) & (!is.na(supplier_cown))) |
     (is.na(recipient_iso3) & (!is.na(recipient_cown)))) %>%
-  select(-year, -count) %>%
+  select(-year, -value) %>%
   distinct(supplier_cown, recipient_cown, .keep_all = TRUE) %>%
   print(n = Inf)
 ```
@@ -205,38 +263,45 @@ current_transfers %>%
 current_transfer_centroids
 ```
 
-I'll just confirm that most of the merges are using 2019 boundaries:
+I'll just confirm that the merges are using 2019 boundaries:
 
 ```{r}
 current_transfer_centroids %>%
   mutate(end_min = pmin(supplier_end, recipient_end)) %>%
   select(end_min, everything()) %>%
-  filter(!is.na(end_min)) %>%
+  filter(!is.na(end_min), !is.na(value)) %>%
   arrange(end_min) %>%
-  distinct(end_min, .keep_all = T) %>%
+  distinct(end_min, .keep_all = TRUE) %>%
   print(n = Inf)
 ```
-
-Looks like all but four country pairings have boundary dates (`end_min`) going up to the end of 2019. So we also need to manually review:
-
-- South Vietnam
-- Southern rebels (Yemen)*
-- East Germany (GDR)
-- Czechoslovakia
 
 ### Uniting historical and current trades
 
 Let's join the two back up:
 
 ```{r}
+#| label: unite-transfers
+
 current_transfer_centroids %>%
-  select(-ends_with("start"), -ends_with("end")) %>%
-  bind_rows(historical_transfer_centroids) %>%
-  # finally, ditch the NA rows (no export)
-  filter(!is.na(count)) %>%
+  bind_rows(historical_transfer_centroids) ->
+united_transfer_centroids
+```
+
+```{r}
+united_transfer_centroids %>%
+  select(-ends_with("start"), -ends_with("end"), -transfer_date) %>%
+  # finally, ditch the NA rows (no export) and erase the simulated cowcodes...
+  filter(!is.na(value)) %>%
+  mutate(
+    supplier_cown = case_when(
+      supplier_cown >= 50000 ~ NA_real_,
+      TRUE ~ supplier_cown),
+    recipient_cown = case_when(
+      recipient_cown >= 50000 ~ NA_real_,
+      TRUE ~ recipient_cown)) %>%
+  # ... and write out! phew
   write_csv(here("data", "sipri-exports-processed.csv")) %>%
-  write_csv(here("importexportmap", "sipri-exports-processed.csv")) %>%
-  write_csv(here("data", "sipri-exports-processed.csv.gz")) ->
+  write_csv(here("importexportmap", "sipri-exports-processed.csv")) ->
 all_transfer_centroids
 
 # geojson export: we need each row's geometry to be a line from supplier
@@ -259,8 +324,8 @@ all_transfer_centroids %>%
     recipient_name = name[2],
     supplier_name = name[1],
     recipient_name = name[2],
-    count = count[1]) %>%
-  mutate(count = as.integer(count)) ->
+    value = value[1]) %>%
+  mutate(value = as.integer(value)) ->
 all_transfer_lines
 
 st_write(
@@ -276,11 +341,11 @@ As a final check, let's have a look at the annual totals:
 ```{r}
 all_transfer_centroids %>%
   group_by(year) %>%
-    summarise(count_all = sum(count, na.rm = TRUE)) %>%
+    summarise(value_all = sum(value, na.rm = TRUE)) %>%
     mutate(date = ymd(paste0(year, "-07-01"))) %>%
     {
       ggplot(.) +
-      aes(x = date, y = count_all / 1000) +
+      aes(x = date, y = value_all / 1000) +
       geom_line() +
       geom_point() +
       geom_smooth() +
@@ -288,4 +353,4 @@ all_transfer_centroids %>%
     }
 ```
 
-This squares with the totals straight out of SIPRI's 
+This squares with the totals straight out of SIPRI's summary tables.

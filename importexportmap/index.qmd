@@ -96,7 +96,7 @@ transferArcs = new deck.MapboxLayer({
     d => [Number(d.recipient_lon), Number(d.recipient_lat)],
   getSourceColor: d => [13, 8, 135, 180],
   getTargetColor: d => [224, 20, 85, 180],
-  getWidth: d => widthScale(d.count),
+  getWidth: d => widthScale(d.value),
   getTilt: d => Number(d.supplier_lon) > Number(d.recipient_lon) ? 15 : -15,
   pickable: true,
   autoHighlight: true,
@@ -153,10 +153,10 @@ viewof map = {
         
         // format the amount
         const tivText =
-          info.object.count > 1000 ?
-            "$" + (info.object.count / 1000).toFixed(1) + " B" :
-            info.object.count > 0 ?
-              "$" + info.object.count + " M" :
+          info.object.value > 1000 ?
+            "$" + (info.object.value / 1000).toFixed(1) + " B" :
+            info.object.value > 0 ?
+              "$" + info.object.value + " M" :
               "< $0.5 M";
 
         popup
@@ -200,9 +200,9 @@ filteredTransfers = allTransfers.filter(
      t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));
 
 filteredTransferCount =
-  filteredTransfers.map(d => d.count).length;
+  filteredTransfers.map(d => d.value).length;
 filteredTransferSum = {
-  const tivsToSum = filteredTransfers.map(d => d.count);
+  const tivsToSum = filteredTransfers.map(d => d.value);
   if (tivsToSum.length > 0) {
     return tivsToSum.reduce((x, y) => x + y);
   } else {
