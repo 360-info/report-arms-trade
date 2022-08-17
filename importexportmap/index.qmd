@@ -97,7 +97,12 @@ transferArcs = new deck.MapboxLayer({
   getSourceColor: d => [13, 8, 135, 180],
   getTargetColor: d => [224, 20, 85, 180],
   getWidth: d => widthScale(d.value),
-  getTilt: d => Number(d.supplier_lon) > Number(d.recipient_lon) ? 15 : -15,
+  getTilt: d => {
+    console.log(
+      d.supplier + " to " + d.recipient + " in " + d.year + ": " +
+      (Number(d.supplier_lon) > Number(d.recipient_lon)));
+    return Number(d.supplier_lon) > Number(d.recipient_lon) ? 0 : -5;
+    },
   pickable: true,
   autoHighlight: true,
   highlightColor: [255, 200, 0, 255]
