@@ -18,9 +18,9 @@ micro.init({
 :::: {#modal-useremix-content}
 ## Use + Remix
 
-These charts, as well as the analyses that underpin them, are available under a [**Creative Commons Attribution 4.0 licence**](https://creativecommons.org/licenses/by/4.0).
+This map, as well as the analyses that underpin them, are available under a [**Creative Commons Attribution 4.0 licence**](https://creativecommons.org/licenses/by/4.0).
 
-Please acknowledge [360info](https://360info.org) and our data sources when you use these charts and data.
+Please acknowledge [**360info**](https://360info.org) and our data sources when you use these charts and data.
 
 #### Embed this chart in your article
 
@@ -32,14 +32,14 @@ Copy and the following code and paste it into your story editor using the <i cla
 ```
 :::
 
-This content is subject to [360info's Terms of Use](https://newshub.360info.org/page/terms).
+This content is subject to [**360info's Terms of Use**](https://newshub.360info.org/page/terms).
 
 #### Get the data and code
 
-Visit the [GitHub repository](https://github.com/360-info/report-template/tree/main/data) to:
+Visit the [GitHub repository](https://github.com/360-info/report-arms-trade/tree/main/data) to:
 
-* [**Download the data**](https://github.com/360-info/report-template/tree/main/data)
-* [**Recreate or remix the chart**](https://github.com/360-info/report-template)
+* [**Download the data**](https://github.com/360-info/report-arms-trade/tree/main/data)
+* [**Recreate or remix the chart**](https://github.com/360-info/report-arms-trade)
 ::::
 
 :::::
@@ -77,6 +77,8 @@ Group placements on the map have been moved in some cases to make transfers clea
 ## Data sources
 
 The data underpinning this map comes from the [**Stockholm International Peace Research Institute**](https://www.sipri.org), which licensed data from its [**Arms Industry Database**](https://www.sipri.org/databases/armsindustry) under Creative Commons 4.0 International.
+
+Vector map tiles are provided by [**MapLibre**](https://github.com/maplibre/demotiles) under the [**BSD 3-Clause licence**](https://github.com/maplibre/demotiles/blob/gh-pages/LICENSE).
 ::::
 
 :::::
