@@ -60,7 +60,7 @@
       "id": "countries-label",
       "type": "symbol",
       "paint": {
-        "text-color": "rgba(96, 96, 96, 1)",
+        "text-color": "rgba(8, 37, 77, 1)",
         "text-halo-blur": {
           "stops": [
             [

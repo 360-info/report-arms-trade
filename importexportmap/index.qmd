@@ -1,5 +1,6 @@
 ---
 title: '[Suppliers]{style="color: #0d0887; background-color: #0d088733; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;"} and [recipients]{style="color:#e01455; background-color: #e0145533; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;"} of international arms transfers'
+description: "Every year, billions of dollars in weapons and other military equipment is shipped across the globe. Explore these transfers in our new interactive map."
 page-layout: custom
 theme: none
 # this includes some default css for the titling, the bootstrap icons (since
@@ -14,6 +15,7 @@ css:
 execute:
   echo: false
 resources:
+  - arms-interactive-featuremedia.png
   - style.json
   - sipri-exports-processed.csv
 format:
@@ -97,12 +99,7 @@ transferArcs = new deck.MapboxLayer({
   getSourceColor: d => [13, 8, 135, 180],
   getTargetColor: d => [224, 20, 85, 180],
   getWidth: d => widthScale(d.value),
-  getTilt: d => {
-    console.log(
-      d.supplier + " to " + d.recipient + " in " + d.year + ": " +
-      (Number(d.supplier_lon) > Number(d.recipient_lon)));
-    return Number(d.supplier_lon) > Number(d.recipient_lon) ? 0 : -5;
-    },
+  getTilt: d => Number(d.supplier_lon) > Number(d.recipient_lon) ? 0 : -5,
   pickable: true,
   autoHighlight: true,
   highlightColor: [255, 200, 0, 255]

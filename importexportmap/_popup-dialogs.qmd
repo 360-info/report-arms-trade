@@ -68,7 +68,11 @@ To learn more about how these numbers are calculated, [**read SIPRI's factsheet*
 
 ## What kinds of equipment are transferred?
 
-Transfers include air defence systems, armoured vehicles, artillery, engines, missiles, naval weapons, satellites, sensors and other equipment. For a more detailed breakdown of the types of equipment transferred, refer to [**SIPRI's Arms Transfers Database](https://www.sipri.org/databases/armstransfers), which allows imports and exports to be broken down by equipment type.
+Transfers include air defence systems, armoured vehicles, artillery, engines, missiles, naval weapons, satellites, sensors and other equipment. For a more detailed breakdown of the types of equipment transferred, refer to [**SIPRI's Arms Transfers Database**](https://www.sipri.org/databases/armstransfers), which allows imports and exports to be broken down by equipment type.
+
+## Notice
+
+Group placements on the map have been moved in some cases to make transfers clearer. 360info is neutral on the subject of disputed territories.
 
 ## Data sources
 
