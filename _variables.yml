@@ -2,6 +2,6 @@
 embed:
   before: |
     &lt;iframe src=&quot;
-  url: https://draft.report-arms-trade.pages.dev/importexportmap
+  url: https://360info-armstrade.pages.dev/importexportmap
   after: |
     &quot; title="Interactive map: who supplies and receives arms?" style="width:100%; height:500px; border:none;" scrolling="no">&lt;/iframe&gt;
