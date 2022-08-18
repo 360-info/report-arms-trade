@@ -5,7 +5,7 @@ project:
 website:
   twitter-card:
     creator: "@360info_global"
-    image: https://draft.report-arms-trade.pages/dev/importexportmap/arms-interactive-featuremedia.png
+    image: https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png
   open-graph:
-    image: https://draft.report-arms-trade.pages/dev/importexportmap/arms-interactive-featuremedia.png
+    image: https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png
     site-name: 360info
