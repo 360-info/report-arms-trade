@@ -19,11 +19,12 @@
   min-width: 350px;
   max-width: 800px;
   width: 90%;
-  max-height: 90vh;
-  top: 5vh;
+  max-height: 50vh;
+  top: 25vh;
   border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 @keyframes mmfadeIn {
@@ -108,25 +109,29 @@
 }
 
 .modalpanel {
-  /* width: 100%; */
-  width: 100px;
   padding: 13px;
   
   float: right;
   position: absolute;
   top: 0;
   right: 0;
-  /* margin-top: 10px; 
-  border-top: 1px lightgrey solid; */
   display: flex;
-  /* flex-flow: row-reverse; */
   flex-flow: column;
   align-items: end;
-  /* gap: 1rem; */
-  gap: 0.5rem;
+  gap: 0.25rem;
 
-  /* font-weight: bold; */
   font-size: smaller;
+
+  /* to maintain readability over a map */
+  z-index: 1000;
+}
+
+.modalpanelitems {
+  font-size: medium;
+  display: flex;
+  flex-flow: row;
+  justify-content: end;
+  gap: 0.75rem;
 }
 
 .modalpanel p {
@@ -145,6 +150,76 @@
   font-weight: bold;
 }
 
-#title-block-header {
-  padding-right: 105px;
+/* editor share banner */
+#edshare {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 1;
+  
+  transition: background 0.25s, color 0.5s, opacity 2s;
+  
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px 0 0 8px;
+  color: black;
+  cursor: pointer;
+
+  align-items: center;
+  gap: 10px;
+}
+
+#edshare-title {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  pointer-events: none;
+}
+
+#edshare-description {
+  margin-block-start: 0.5em;
+  margin-block-end: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  /* de-emphasise a bit */
+  font-size: smaller;
+  opacity: 0.8;
+  letter-spacing: 0.0125rem;
+}
+
+#edshare-icon {
+  font-size: 2.5rem;
+}
+
+#edshare.ready {
+  display: flex;
+  visibility: visible;
+
+  /* animation when ready to be clicked */
+  animation: shimmer 2.5s infinite;
+  background: linear-gradient(65deg, gold 4%, rgb(233, 171, 15) 25%, gold 36%);
+  background-size: 2000px 100%;
+  box-shadow: 0px 5px 10px 5px #f2b70533;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+#edshare.clicked {
+  display: flex;
+  visibility: visible;
+  background: #0f7a48;
+  box-shadow: 0px 5px 10px 5px #0f7a4833;
+  color: white;
+}
+
+#edshare.clicked.done {
+  opacity: 0;
 }

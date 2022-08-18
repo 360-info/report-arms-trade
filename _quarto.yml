@@ -1,4 +1,11 @@
 project:
-  type: website
   output-dir: out
-  
+  type: website
+
+website:
+  twitter-card:
+    creator: "@360info_global"
+    image: https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png
+  open-graph:
+    image: https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png
+    site-name: 360info
