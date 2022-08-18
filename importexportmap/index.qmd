@@ -17,6 +17,10 @@ execute:
 resources:
   - arms-interactive-featuremedia.png
   - style.json
+  - tiles/*
+  - tiles/*/*/*.pbf
+  - font/*
+  - font/*/*
   - sipri-exports-processed.csv
 format:
   html:
