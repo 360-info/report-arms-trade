@@ -67,6 +67,6 @@
         1
     ],
     "tiles": [
-        "https://test-addtile.360info-armstrade.pages.dev/importexportmap/tiles/{z}/{x}/{y}.pbf"
+        "https://360info-armstrade.pages.dev/importexportmap/tiles/{z}/{x}/{y}.pbf"
     ]
 }
