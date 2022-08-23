@@ -1,7 +1,7 @@
 # alter url for production
 embed:
   before: |
-    &lt;iframe allow=&quotfullscreen&quot src=&quot;
+    &lt;iframe allow=&quotfullscreen&quot allowfullscreen=&quottrue&quot src=&quot;
   url: https://360info-armstrade.pages.dev/importexportmap
   after: |
     &quot; title="Interactive map: who supplies and receives arms?" style="width:100%; height:500px; border:none; background-color: white;" scrolling="no">&lt;/iframe&gt;
