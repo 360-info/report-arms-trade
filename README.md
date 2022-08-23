@@ -2,6 +2,8 @@
 
 Visualises arms transfers between groups from 1950 to 2021.
 
+![image](https://user-images.githubusercontent.com/6520659/186089633-cc9f4a73-f957-4de6-9e32-51e3b3e3bbbf.png)
+
 ## Use + Remix rights
 
 ![[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0)](https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png)
