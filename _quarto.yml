@@ -1,6 +1,7 @@
 project:
   output-dir: out
   type: website
+  pre-render: test.ts
 
 website:
   twitter-card:
