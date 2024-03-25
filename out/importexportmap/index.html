@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -71,16 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FHGGBJD1HT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FHGGBJD1HT', {
-    client_storage: 'none'
-  });
-</script>
-
 
 <link rel="stylesheet" href="../style/embed.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
@@ -90,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:title" content="Suppliers and recipients of international arms transfers">
 <meta property="og:description" content="Every year, billions of dollars in weapons and other military equipment is shipped across the globe. Explore these transfers in our new interactive map.">
 <meta property="og:image" content="https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png">
-<meta property="og:site-name" content="360info">
+<meta property="og:site_name" content="360info">
 <meta name="twitter:title" content="Suppliers and recipients of international arms transfers">
 <meta name="twitter:description" content="Every year, billions of dollars in weapons and other military equipment is shipped across the globe. Explore these transfers in our new interactive map.">
 <meta name="twitter:image" content="https://360info-armstrade.pages.dev/importexportmap/arms-interactive-featuremedia.png">
@@ -105,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="title"><span style="color: #0d0887; background-color: #0d088733; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;">Suppliers</span> and <span style="color:#e01455; background-color: #e0145533; padding-inline-start: 0.2rem; padding-inline-end: 0.2rem; border-radius: 10px;">recipients</span> of international arms transfers</h1>
 
 </header>
+
 
 <div class="modalpanel">
 <div class="modalpanelitems">
@@ -220,14 +211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
 </script>
 <div id="libraries" class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="45" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 44;"><span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> require<span class="op">.</span><span class="fu">alias</span>({</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maplibregl</span><span class="op">:</span> <span class="st">"maplibre-gl@2.1.9/dist/maplibre-gl.js"</span><span class="op">,</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="dt">h3</span><span class="op">:</span> {}<span class="op">,</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="dt">deck</span><span class="op">:</span> <span class="st">"deck.gl@latest/dist.min.js"</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>maplibregl <span class="op">=</span> <span class="fu">r</span>(<span class="st">"maplibregl"</span>)<span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="bu">window</span>[<span class="st">"maplibregl"</span>])<span class="op">;</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>deck <span class="op">=</span> <span class="fu">r</span>(<span class="st">"deck"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="32" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> require<span class="op">.</span><span class="fu">alias</span>({</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maplibregl</span><span class="op">:</span> <span class="st">"maplibre-gl@2.1.9/dist/maplibre-gl.js"</span><span class="op">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">h3</span><span class="op">:</span> {}<span class="op">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">deck</span><span class="op">:</span> <span class="st">"deck.gl@8.9.35/dist.min.js"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>maplibregl <span class="op">=</span> <span class="fu">r</span>(<span class="st">"maplibregl"</span>)<span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="bu">window</span>[<span class="st">"maplibregl"</span>])<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>deck <span class="op">=</span> <span class="fu">r</span>(<span class="st">"deck"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="libraries-1">
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -251,11 +242,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="inputs" class="cell inputForm">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="64" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 63;"><span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>filterSummary <span class="op">=</span> filteredTransferCount <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html</span><span class="vs">`&lt;strong&gt;</span><span class="sc">${</span>filteredTransferCount<span class="sc">}</span><span class="vs">&lt;/strong&gt; transfers selected totalling at least &lt;strong&gt;$</span><span class="sc">${</span>filteredTransferSum <span class="op">&gt;</span> <span class="dv">1000</span> <span class="op">?</span> (filteredTransferSum <span class="op">/</span> <span class="dv">1000</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">" billion"</span> <span class="op">:</span> filteredTransferSum <span class="op">+</span> <span class="st">" million"</span> <span class="sc">}</span><span class="vs">&lt;/strong&gt; TIV`</span> <span class="op">:</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html</span><span class="vs">`No transfers selected`</span><span class="op">;</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;a href="#" data-micromodal-trigger="modal-about" style="font-size:smaller"&gt;&lt;i class="bi bi-info-circle-fill"&gt;&lt;/i&gt; What is TIV?&lt;/a&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="51" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 50;"><span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>filterSummary <span class="op">=</span> filteredTransferCount <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html</span><span class="vs">`&lt;strong&gt;</span><span class="sc">${</span>filteredTransferCount<span class="sc">}</span><span class="vs">&lt;/strong&gt; transfers selected totalling at least &lt;strong&gt;$</span><span class="sc">${</span>filteredTransferSum <span class="op">&gt;</span> <span class="dv">1000</span> <span class="op">?</span> (filteredTransferSum <span class="op">/</span> <span class="dv">1000</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">" billion"</span> <span class="op">:</span> filteredTransferSum <span class="op">+</span> <span class="st">" million"</span> <span class="sc">}</span><span class="vs">&lt;/strong&gt; TIV`</span> <span class="op">:</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html</span><span class="vs">`No transfers selected`</span><span class="op">;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;a href="#" data-micromodal-trigger="modal-about" style="font-size:smaller"&gt;&lt;i class="bi bi-info-circle-fill"&gt;&lt;/i&gt; What is TIV?&lt;/a&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="inputs-1">
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -270,19 +261,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="70" data-source-offset="-449"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 69;"><span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>viewof selectedCountry <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({ </span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Who"</span><span class="op">,</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Country or group name"</span><span class="op">,</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"100%"</span> })<span class="op">;</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">// i've added some extra css styling on this one by targeting</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co">// .inputForm input[type="number"]</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>viewof selectedYear <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1950</span><span class="op">,</span> <span class="dv">2021</span>]<span class="op">,</span> {</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Year"</span><span class="op">,</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">2021</span><span class="op">,</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"100%"</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="57" data-source-offset="-449"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 56;"><span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>viewof selectedCountry <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({ </span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Who"</span><span class="op">,</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"Country or group name"</span><span class="op">,</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"100%"</span> })<span class="op">;</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">// i've added some extra css styling on this one by targeting</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co">// .inputForm input[type="number"]</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>viewof selectedYear <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1950</span><span class="op">,</span> <span class="dv">2021</span>]<span class="op">,</span> {</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Year"</span><span class="op">,</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="dv">2021</span><span class="op">,</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="st">"100%"</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="inputs-3">
 <div id="ojs-cell-2-3" data-nodetype="declaration">
@@ -298,28 +289,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="arc-layer" class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="90" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 89;"><span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>widthScale <span class="op">=</span></span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>  d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">4500</span>]) </span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">range</span>([<span class="fl">0.25</span><span class="op">,</span> <span class="dv">30</span>])<span class="op">;</span></span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>transferArcs <span class="op">=</span> <span class="kw">new</span> deck<span class="op">.</span><span class="fu">MapboxLayer</span>({</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="dt">id</span><span class="op">:</span> <span class="st">"transferArcs"</span><span class="op">,</span> </span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> deck<span class="op">.</span><span class="at">ArcLayer</span><span class="op">,</span></span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> []<span class="op">,</span></span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getSourcePosition</span><span class="op">:</span></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    d <span class="kw">=&gt;</span> [<span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lon</span>)<span class="op">,</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lat</span>)]<span class="op">,</span></span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTargetPosition</span><span class="op">:</span></span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    d <span class="kw">=&gt;</span> [<span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lon</span>)<span class="op">,</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lat</span>)]<span class="op">,</span></span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getSourceColor</span><span class="op">:</span> d <span class="kw">=&gt;</span> [<span class="dv">13</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">135</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span></span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTargetColor</span><span class="op">:</span> d <span class="kw">=&gt;</span> [<span class="dv">224</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getWidth</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">widthScale</span>(d<span class="op">.</span><span class="at">value</span>)<span class="op">,</span></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTilt</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lon</span>) <span class="op">&gt;</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lon</span>) <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="op">-</span><span class="dv">5</span><span class="op">,</span></span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pickable</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="dt">autoHighlight</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">highlightColor</span><span class="op">:</span> [<span class="dv">255</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]</span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="arc-layer" class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="77" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 76;"><span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>widthScale <span class="op">=</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>  d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">4500</span>]) </span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">range</span>([<span class="fl">0.25</span><span class="op">,</span> <span class="dv">30</span>])<span class="op">;</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>transferArcs <span class="op">=</span> <span class="kw">new</span> deck<span class="op">.</span><span class="fu">MapboxLayer</span>({</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="dt">id</span><span class="op">:</span> <span class="st">"transferArcs"</span><span class="op">,</span> </span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> deck<span class="op">.</span><span class="at">ArcLayer</span><span class="op">,</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getSourcePosition</span><span class="op">:</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    d <span class="kw">=&gt;</span> [<span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lon</span>)<span class="op">,</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lat</span>)]<span class="op">,</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTargetPosition</span><span class="op">:</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    d <span class="kw">=&gt;</span> [<span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lon</span>)<span class="op">,</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lat</span>)]<span class="op">,</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getSourceColor</span><span class="op">:</span> d <span class="kw">=&gt;</span> [<span class="dv">13</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">135</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTargetColor</span><span class="op">:</span> d <span class="kw">=&gt;</span> [<span class="dv">224</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">85</span><span class="op">,</span> <span class="dv">180</span>]<span class="op">,</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getWidth</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="fu">widthScale</span>(d<span class="op">.</span><span class="at">value</span>)<span class="op">,</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">getTilt</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">supplier_lon</span>) <span class="op">&gt;</span> <span class="bu">Number</span>(d<span class="op">.</span><span class="at">recipient_lon</span>) <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> <span class="op">-</span><span class="dv">5</span><span class="op">,</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pickable</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  <span class="dt">autoHighlight</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="dt">highlightColor</span><span class="op">:</span> [<span class="dv">255</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="arc-layer-1">
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -336,10 +327,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="113" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 112;"><span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>popup <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Popup</span>({</span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>  <span class="dt">closeButton</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>  <span class="dt">closeOnClick</span><span class="op">:</span> <span class="kw">false</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="100" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 99;"><span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>popup <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Popup</span>({</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">closeButton</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>  <span class="dt">closeOnClick</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="declaration">
 
@@ -347,101 +338,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="121" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 120;"><span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="co">/* this is a bit different to regular mapbox/maplibre instantiation</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="co">   it lets have the map react to other values in the document, like</span></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="co">   a button or a timer, without reinstantiating!</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="co">   (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>viewof map <span class="op">=</span> {</span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="position: absolute; left: 0; top: 0; height: 100vh; width: 100%;" /&gt;`</span><span class="op">;</span></span>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="co">/* this is a bit different to regular mapbox/maplibre instantiation</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="co">   it lets have the map react to other values in the document, like</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="co">   a button or a timer, without reinstantiating!</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="co">   (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>viewof map <span class="op">=</span> {</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="position: absolute; left: 0; top: 0; height: 100vh; width: 100%;" /&gt;`</span><span class="op">;</span></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Give the container dimensions.</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> container<span class="op">;</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create the \`map\` object with the mapboxgl.Map constructor, referencing</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the container div</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> map <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Map</span>({</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>    container<span class="op">,</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bounds</span><span class="op">:</span> [[<span class="op">-</span><span class="dv">175</span><span class="op">,</span> <span class="op">-</span><span class="dv">80</span>]<span class="op">,</span> [<span class="dv">175</span><span class="op">,</span> <span class="dv">85</span>]]<span class="op">,</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pitch</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>    <span class="dt">antialias</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> <span class="st">"style.json"</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Give the container dimensions.</span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> container<span class="op">;</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create the \`map\` object with the mapboxgl.Map constructor, referencing</span></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the container div</span></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> map <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Map</span>({</span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>    container<span class="op">,</span></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bounds</span><span class="op">:</span> [[<span class="op">-</span><span class="dv">175</span><span class="op">,</span> <span class="op">-</span><span class="dv">80</span>]<span class="op">,</span> [<span class="dv">175</span><span class="op">,</span> <span class="dv">85</span>]]<span class="op">,</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pitch</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    <span class="dt">antialias</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> <span class="st">"style.json"</span></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>  <span class="co">// on map load:</span></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - dispatch its value back to ojs</span></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - add the deck.gl layer to the map</span></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - add a prop to the layer that adds/removes a popup from the map</span></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   (we can't do this on initial layer def because the map isn't ready yet)</span></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">on</span>(<span class="st">"load"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> map<span class="op">;</span></span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))<span class="op">;</span></span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>    map<span class="op">.</span><span class="fu">addLayer</span>(transferArcs)<span class="op">;</span></span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">updatePopup</span>(info<span class="op">,</span> <span class="bu">event</span>) {</span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (info <span class="op">&amp;&amp;</span> info<span class="op">.</span><span class="at">object</span>) {</span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co"> - set coordinates with event.center?</span></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>        <span class="co">// format the amount</span></span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> tivText <span class="op">=</span></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>          info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">&gt;</span> <span class="dv">1000</span> <span class="op">?</span></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>            <span class="st">"$"</span> <span class="op">+</span> (info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">/</span> <span class="dv">1000</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">" B"</span> <span class="op">:</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>            info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>              <span class="st">"$"</span> <span class="op">+</span> info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">+</span> <span class="st">" M"</span> <span class="op">:</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>              <span class="st">"&lt; $0.5 M"</span><span class="op">;</span></span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>        popup</span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">setLngLat</span>(info<span class="op">.</span><span class="at">coordinate</span>)</span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">setHTML</span>(</span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>            <span class="vs">`&lt;span class="title"&gt;</span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">supplier</span><span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">recipient</span><span class="sc">}</span><span class="vs">&lt;/span&gt;&lt;/br&gt;</span></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="vs">            TIV </span><span class="sc">${</span>tivText<span class="sc">}</span><span class="vs"> in </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">year</span><span class="sc">}</span><span class="vs">&lt;/br&gt;</span></span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;a href="#" data-micromodal-trigger="modal-about"&gt;&lt;i class="bi bi-info-circle-fill"&gt;&lt;/i&gt; What is TIV?&lt;/a&gt;`</span>)</span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>        popup<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a>    <span class="co">// attach our hover updater to the layer (can't do this until after the</span></span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>    <span class="co">// layer is itself attached)</span></span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">onHover</span><span class="op">:</span> updatePopup })<span class="op">;</span></span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>    <span class="co">// also configure the automatically-create deck instance</span></span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="at">deck</span><span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">pickingRadius</span><span class="op">:</span> <span class="dv">10</span> })<span class="op">;</span></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>  <span class="co">// on map load:</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - dispatch its value back to ojs</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - add the deck.gl layer to the map</span></span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>  <span class="co">// - add a prop to the layer that adds/removes a popup from the map</span></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">//   (we can't do this on initial layer def because the map isn't ready yet)</span></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">on</span>(<span class="st">"load"</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="at">value</span> <span class="op">=</span> map<span class="op">;</span></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>    container<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))<span class="op">;</span></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>    map<span class="op">.</span><span class="fu">addLayer</span>(transferArcs)<span class="op">;</span></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">updatePopup</span>(info<span class="op">,</span> <span class="bu">event</span>) {</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (info <span class="op">&amp;&amp;</span> info<span class="op">.</span><span class="at">object</span>) {</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>        <span class="co">// </span><span class="al">TODO</span><span class="co"> - set coordinates with event.center?</span></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>        <span class="co">// format the amount</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> tivText <span class="op">=</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>          info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">&gt;</span> <span class="dv">1000</span> <span class="op">?</span></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>            <span class="st">"$"</span> <span class="op">+</span> (info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">/</span> <span class="dv">1000</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">+</span> <span class="st">" B"</span> <span class="op">:</span></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>            info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span></span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>              <span class="st">"$"</span> <span class="op">+</span> info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">value</span> <span class="op">+</span> <span class="st">" M"</span> <span class="op">:</span></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>              <span class="st">"&lt; $0.5 M"</span><span class="op">;</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>        popup</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">setLngLat</span>(info<span class="op">.</span><span class="at">coordinate</span>)</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">setHTML</span>(</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>            <span class="vs">`&lt;span class="title"&gt;</span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">supplier</span><span class="sc">}</span><span class="vs"> → </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">recipient</span><span class="sc">}</span><span class="vs">&lt;/span&gt;&lt;/br&gt;</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="vs">            TIV </span><span class="sc">${</span>tivText<span class="sc">}</span><span class="vs"> in </span><span class="sc">${</span>info<span class="op">.</span><span class="at">object</span><span class="op">.</span><span class="at">year</span><span class="sc">}</span><span class="vs">&lt;/br&gt;</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;a href="#" data-micromodal-trigger="modal-about"&gt;&lt;i class="bi bi-info-circle-fill"&gt;&lt;/i&gt; What is TIV?&lt;/a&gt;`</span>)</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>        popup<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>    <span class="co">// attach our hover updater to the layer (can't do this until after the</span></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>    <span class="co">// layer is itself attached)</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">onHover</span><span class="op">:</span> updatePopup })<span class="op">;</span></span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>    <span class="co">// also configure the automatically-create deck instance</span></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>    transferArcs<span class="op">.</span><span class="at">deck</span><span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">pickingRadius</span><span class="op">:</span> <span class="dv">10</span> })<span class="op">;</span></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="map" class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
-<div id="load-and-filter-data" class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="195" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 194;"><span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a>allTransfers <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"sipri-exports-processed.csv"</span>)</span>
-<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
-<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a><span class="co">/* the dataset is filtered first by selected year, then by search term</span></span>
-<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a><span class="co">   (we use a separate text input instead of the search's because we want to</span></span>
-<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a><span class="co">   retain the search term when the year changes) */</span></span>
-<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>filteredTransfers <span class="op">=</span> allTransfers<span class="op">.</span><span class="fu">filter</span>(</span>
-<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a>  t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">year</span> <span class="op">==</span> <span class="bu">Number</span>(selectedYear) <span class="op">&amp;&amp;</span> </span>
-<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a>    (t<span class="op">.</span><span class="at">supplier</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>()) <span class="op">||</span></span>
-<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a>     t<span class="op">.</span><span class="at">recipient</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>())))<span class="op">;</span></span>
-<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a>filteredTransferCount <span class="op">=</span></span>
-<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a>  filteredTransfers<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">value</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
-<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a>filteredTransferSum <span class="op">=</span> {</span>
-<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tivsToSum <span class="op">=</span> filteredTransfers<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
-<span id="cb7-211"><a href="#cb7-211" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (tivsToSum<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb7-212"><a href="#cb7-212" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tivsToSum<span class="op">.</span><span class="fu">reduce</span>((x<span class="op">,</span> y) <span class="kw">=&gt;</span> x <span class="op">+</span> y)<span class="op">;</span></span>
-<span id="cb7-213"><a href="#cb7-213" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb7-214"><a href="#cb7-214" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-215"><a href="#cb7-215" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-216"><a href="#cb7-216" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="load-and-filter-data" class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="182" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 181;"><span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a>allTransfers <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"sipri-exports-processed.csv"</span>)</span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a><span class="co">/* the dataset is filtered first by selected year, then by search term</span></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a><span class="co">   (we use a separate text input instead of the search's because we want to</span></span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a><span class="co">   retain the search term when the year changes) */</span></span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a>filteredTransfers <span class="op">=</span> allTransfers<span class="op">.</span><span class="fu">filter</span>(</span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a>  t <span class="kw">=&gt;</span> t<span class="op">.</span><span class="at">year</span> <span class="op">==</span> <span class="bu">Number</span>(selectedYear) <span class="op">&amp;&amp;</span> </span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a>    (t<span class="op">.</span><span class="at">supplier</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>()) <span class="op">||</span></span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a>     t<span class="op">.</span><span class="at">recipient</span><span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">.</span><span class="fu">includes</span>(selectedCountry<span class="op">.</span><span class="fu">toLowerCase</span>())))<span class="op">;</span></span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a>filteredTransferCount <span class="op">=</span></span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a>  filteredTransfers<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">value</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a>filteredTransferSum <span class="op">=</span> {</span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tivsToSum <span class="op">=</span> filteredTransfers<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">value</span>)<span class="op">;</span></span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (tivsToSum<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tivsToSum<span class="op">.</span><span class="fu">reduce</span>((x<span class="op">,</span> y) <span class="kw">=&gt;</span> x <span class="op">+</span> y)<span class="op">;</span></span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="load-and-filter-data-1">
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -471,10 +462,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="222" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 221;"><span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">data</span><span class="op">:</span> filteredTransfers })<span class="op">;</span></span>
-<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">TODO</span><span class="co"> - maybe update map bounds based on bounds of currentYearTransfers?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="209" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 208;"><span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a>transferArcs<span class="op">.</span><span class="fu">setProps</span>({ <span class="dt">data</span><span class="op">:</span> filteredTransfers })<span class="op">;</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">TODO</span><span class="co"> - maybe update map bounds based on bounds of currentYearTransfers?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="update-arcs" class="cell-output cell-output-display hidden">
 <div id="ojs-cell-7" data-nodetype="expression">
 
@@ -556,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\nr = require.alias({\n  maplibregl: \"maplibre-gl@2.1.9/dist/maplibre-gl.js\",\n  h3: {},\n  deck: \"deck.gl@latest/dist.min.js\"\n});\n\nmaplibregl = r(\"maplibregl\").catch(() => window[\"maplibregl\"]);\ndeck = r(\"deck\");\n\n/* animated arcs:\n   https://observablehq.com/@yarynam/animated-deck-gl-arcs\n   https://symbolixau.github.io/mapdeck/articles/layers.html#animated-arcs */\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nfilterSummary = filteredTransferCount > 0 ?\n  html`<strong>${filteredTransferCount}</strong> transfers selected totalling at least <strong>$${filteredTransferSum > 1000 ? (filteredTransferSum / 1000).toFixed(1) + \" billion\" : filteredTransferSum + \" million\" }</strong> TIV` :\n  html`No transfers selected`;\n\nhtml`<a href=\"#\" data-micromodal-trigger=\"modal-about\" style=\"font-size:smaller\"><i class=\"bi bi-info-circle-fill\"></i> What is TIV?</a>`\n\nviewof selectedCountry = Inputs.text({ \n  label: \"Who\",\n  placeholder: \"Country or group name\",\n  width: \"100%\" });\n\n// i've added some extra css styling on this one by targeting\n// .inputForm input[type=\"number\"]\nviewof selectedYear = Inputs.range([1950, 2021], {\n  label: \"Year\",\n  step: 1,\n  value: 2021,\n  width: \"100%\"\n});\n\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"\nwidthScale =\n  d3.scaleLinear()\n  .domain([0, 4500]) \n  .range([0.25, 30]);\n\ntransferArcs = new deck.MapboxLayer({\n  id: \"transferArcs\", \n  type: deck.ArcLayer,\n  data: [],\n  getSourcePosition:\n    d => [Number(d.supplier_lon), Number(d.supplier_lat)],\n  getTargetPosition:\n    d => [Number(d.recipient_lon), Number(d.recipient_lat)],\n  getSourceColor: d => [13, 8, 135, 180],\n  getTargetColor: d => [224, 20, 85, 180],\n  getWidth: d => widthScale(d.value),\n  getTilt: d => Number(d.supplier_lon) > Number(d.recipient_lon) ? 0 : -5,\n  pickable: true,\n  autoHighlight: true,\n  highlightColor: [255, 200, 0, 255]\n})\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"popup = new maplibregl.Popup({\n  closeButton: false,\n  closeOnClick: false\n});\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"\n/* this is a bit different to regular mapbox/maplibre instantiation\n   it lets have the map react to other values in the document, like\n   a button or a timer, without reinstantiating!\n   (based on https://observablehq.com/@tmcw/using-mapbox-gl-js) */\n   \nviewof map = {\n  let container = html`<div style=\"position: absolute; left: 0; top: 0; height: 100vh; width: 100%;\" />`;\n\n  // Give the container dimensions.\n  yield container;\n\n  // Create the \\`map\\` object with the mapboxgl.Map constructor, referencing\n  // the container div\n  let map = new maplibregl.Map({\n    container,\n    bounds: [[-175, -80], [175, 85]],\n    pitch: 30,\n    antialias: true,\n    style: \"style.json\"\n  });\n\n  // on map load:\n  // - dispatch its value back to ojs\n  // - add the deck.gl layer to the map\n  // - add a prop to the layer that adds/removes a popup from the map\n  //   (we can't do this on initial layer def because the map isn't ready yet)\n  map.on(\"load\", () => {\n    container.value = map;\n    container.dispatchEvent(new CustomEvent(\"input\"));\n    \n    map.addLayer(transferArcs);\n\n    function updatePopup(info, event) {\n      if (info && info.object) {\n        // TODO - set coordinates with event.center?\n        \n        // format the amount\n        const tivText =\n          info.object.value > 1000 ?\n            \"$\" + (info.object.value / 1000).toFixed(1) + \" B\" :\n            info.object.value > 0 ?\n              \"$\" + info.object.value + \" M\" :\n              \"< $0.5 M\";\n\n        popup\n          .setLngLat(info.coordinate)\n          .setHTML(\n            `<span class=\"title\">${info.object.supplier} → ${info.object.recipient}</span></br>\n            TIV ${tivText} in ${info.object.year}</br>\n            <a href=\"#\" data-micromodal-trigger=\"modal-about\"><i class=\"bi bi-info-circle-fill\"></i> What is TIV?</a>`)\n          .addTo(map);\n      } else {\n        popup.remove();\n      }\n    }\n\n    // attach our hover updater to the layer (can't do this until after the\n    // layer is itself attached)\n    transferArcs.setProps({ onHover: updatePopup });\n\n    // also configure the automatically-create deck instance\n    transferArcs.deck.setProps({ pickingRadius: 10 });\n    \n  });\n\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"\nallTransfers = FileAttachment(\"sipri-exports-processed.csv\")\n  .csv({ typed: true });\n\n/* the dataset is filtered first by selected year, then by search term\n   (we use a separate text input instead of the search's because we want to\n   retain the search term when the year changes) */\n\nfilteredTransfers = allTransfers.filter(\n  t => t.year == Number(selectedYear) && \n    (t.supplier.toLowerCase().includes(selectedCountry.toLowerCase()) ||\n     t.recipient.toLowerCase().includes(selectedCountry.toLowerCase())));\n\nfilteredTransferCount =\n  filteredTransfers.map(d => d.value).length;\nfilteredTransferSum = {\n  const tivsToSum = filteredTransfers.map(d => d.value);\n  if (tivsToSum.length > 0) {\n    return tivsToSum.reduce((x, y) => x + y);\n  } else {\n    return 0;\n  }\n}\n  \n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"\ntransferArcs.setProps({ data: filteredTransfers });\n\n// TODO - maybe update map bounds based on bounds of currentYearTransfers?\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"micro = require(\"micromodal@0.4.10\")\nmicro.init({\n  awaitOpenAnimation: true,\n  awaitCloseAnimation: true\n});\n"},{"methodName":"interpretQuiet","source":"shinyInput('selectedCountry')"},{"methodName":"interpretQuiet","source":"shinyInput('selectedYear')"},{"methodName":"interpretQuiet","source":"shinyInput('map')"}]}
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuciA9IHJlcXVpcmUuYWxpYXMoe1xuICBtYXBsaWJyZWdsOiBcIm1hcGxpYnJlLWdsQDIuMS45L2Rpc3QvbWFwbGlicmUtZ2wuanNcIixcbiAgaDM6IHt9LFxuICBkZWNrOiBcImRlY2suZ2xAOC45LjM1L2Rpc3QubWluLmpzXCJcbn0pO1xuXG5tYXBsaWJyZWdsID0gcihcIm1hcGxpYnJlZ2xcIikuY2F0Y2goKCkgPT4gd2luZG93W1wibWFwbGlicmVnbFwiXSk7XG5kZWNrID0gcihcImRlY2tcIilcblxuLyogYW5pbWF0ZWQgYXJjczpcbiAgIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AeWFyeW5hbS9hbmltYXRlZC1kZWNrLWdsLWFyY3NcbiAgIGh0dHBzOi8vc3ltYm9saXhhdS5naXRodWIuaW8vbWFwZGVjay9hcnRpY2xlcy9sYXllcnMuaHRtbCNhbmltYXRlZC1hcmNzICovXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmZpbHRlclN1bW1hcnkgPSBmaWx0ZXJlZFRyYW5zZmVyQ291bnQgPiAwID9cbiAgaHRtbGA8c3Ryb25nPiR7ZmlsdGVyZWRUcmFuc2ZlckNvdW50fTwvc3Ryb25nPiB0cmFuc2ZlcnMgc2VsZWN0ZWQgdG90YWxsaW5nIGF0IGxlYXN0IDxzdHJvbmc+JCR7ZmlsdGVyZWRUcmFuc2ZlclN1bSA+IDEwMDAgPyAoZmlsdGVyZWRUcmFuc2ZlclN1bSAvIDEwMDApLnRvRml4ZWQoMSkgKyBcIiBiaWxsaW9uXCIgOiBmaWx0ZXJlZFRyYW5zZmVyU3VtICsgXCIgbWlsbGlvblwiIH08L3N0cm9uZz4gVElWYCA6XG4gIGh0bWxgTm8gdHJhbnNmZXJzIHNlbGVjdGVkYDtcblxuaHRtbGA8YSBocmVmPVwiI1wiIGRhdGEtbWljcm9tb2RhbC10cmlnZ2VyPVwibW9kYWwtYWJvdXRcIiBzdHlsZT1cImZvbnQtc2l6ZTpzbWFsbGVyXCI+PGkgY2xhc3M9XCJiaSBiaS1pbmZvLWNpcmNsZS1maWxsXCI+PC9pPiBXaGF0IGlzIFRJVj88L2E+YFxuXG52aWV3b2Ygc2VsZWN0ZWRDb3VudHJ5ID0gSW5wdXRzLnRleHQoeyBcbiAgbGFiZWw6IFwiV2hvXCIsXG4gIHBsYWNlaG9sZGVyOiBcIkNvdW50cnkgb3IgZ3JvdXAgbmFtZVwiLFxuICB3aWR0aDogXCIxMDAlXCIgfSk7XG5cbi8vIGkndmUgYWRkZWQgc29tZSBleHRyYSBjc3Mgc3R5bGluZyBvbiB0aGlzIG9uZSBieSB0YXJnZXRpbmdcbi8vIC5pbnB1dEZvcm0gaW5wdXRbdHlwZT1cIm51bWJlclwiXVxudmlld29mIHNlbGVjdGVkWWVhciA9IElucHV0cy5yYW5nZShbMTk1MCwgMjAyMV0sIHtcbiAgbGFiZWw6IFwiWWVhclwiLFxuICBzdGVwOiAxLFxuICB2YWx1ZTogMjAyMSxcbiAgd2lkdGg6IFwiMTAwJVwiXG59KTtcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG53aWR0aFNjYWxlID1cbiAgZDMuc2NhbGVMaW5lYXIoKVxuICAuZG9tYWluKFswLCA0NTAwXSkgXG4gIC5yYW5nZShbMC4yNSwgMzBdKTtcblxudHJhbnNmZXJBcmNzID0gbmV3IGRlY2suTWFwYm94TGF5ZXIoe1xuICBpZDogXCJ0cmFuc2ZlckFyY3NcIiwgXG4gIHR5cGU6IGRlY2suQXJjTGF5ZXIsXG4gIGRhdGE6IFtdLFxuICBnZXRTb3VyY2VQb3NpdGlvbjpcbiAgICBkID0+IFtOdW1iZXIoZC5zdXBwbGllcl9sb24pLCBOdW1iZXIoZC5zdXBwbGllcl9sYXQpXSxcbiAgZ2V0VGFyZ2V0UG9zaXRpb246XG4gICAgZCA9PiBbTnVtYmVyKGQucmVjaXBpZW50X2xvbiksIE51bWJlcihkLnJlY2lwaWVudF9sYXQpXSxcbiAgZ2V0U291cmNlQ29sb3I6IGQgPT4gWzEzLCA4LCAxMzUsIDE4MF0sXG4gIGdldFRhcmdldENvbG9yOiBkID0+IFsyMjQsIDIwLCA4NSwgMTgwXSxcbiAgZ2V0V2lkdGg6IGQgPT4gd2lkdGhTY2FsZShkLnZhbHVlKSxcbiAgZ2V0VGlsdDogZCA9PiBOdW1iZXIoZC5zdXBwbGllcl9sb24pID4gTnVtYmVyKGQucmVjaXBpZW50X2xvbikgPyAwIDogLTUsXG4gIHBpY2thYmxlOiB0cnVlLFxuICBhdXRvSGlnaGxpZ2h0OiB0cnVlLFxuICBoaWdobGlnaHRDb2xvcjogWzI1NSwgMjAwLCAwLCAyNTVdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoicG9wdXAgPSBuZXcgbWFwbGlicmVnbC5Qb3B1cCh7XG4gIGNsb3NlQnV0dG9uOiBmYWxzZSxcbiAgY2xvc2VPbkNsaWNrOiBmYWxzZVxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbi8qIHRoaXMgaXMgYSBiaXQgZGlmZmVyZW50IHRvIHJlZ3VsYXIgbWFwYm94L21hcGxpYnJlIGluc3RhbnRpYXRpb25cbiAgIGl0IGxldHMgaGF2ZSB0aGUgbWFwIHJlYWN0IHRvIG90aGVyIHZhbHVlcyBpbiB0aGUgZG9jdW1lbnQsIGxpa2VcbiAgIGEgYnV0dG9uIG9yIGEgdGltZXIsIHdpdGhvdXQgcmVpbnN0YW50aWF0aW5nIVxuICAgKGJhc2VkIG9uIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy91c2luZy1tYXBib3gtZ2wtanMpICovXG4gICBcbnZpZXdvZiBtYXAgPSB7XG4gIGxldCBjb250YWluZXIgPSBodG1sYDxkaXYgc3R5bGU9XCJwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDA7IHRvcDogMDsgaGVpZ2h0OiAxMDB2aDsgd2lkdGg6IDEwMCU7XCIgLz5gO1xuXG4gIC8vIEdpdmUgdGhlIGNvbnRhaW5lciBkaW1lbnNpb25zLlxuICB5aWVsZCBjb250YWluZXI7XG5cbiAgLy8gQ3JlYXRlIHRoZSBcXGBtYXBcXGAgb2JqZWN0IHdpdGggdGhlIG1hcGJveGdsLk1hcCBjb25zdHJ1Y3RvciwgcmVmZXJlbmNpbmdcbiAgLy8gdGhlIGNvbnRhaW5lciBkaXZcbiAgbGV0IG1hcCA9IG5ldyBtYXBsaWJyZWdsLk1hcCh7XG4gICAgY29udGFpbmVyLFxuICAgIGJvdW5kczogW1stMTc1LCAtODBdLCBbMTc1LCA4NV1dLFxuICAgIHBpdGNoOiAzMCxcbiAgICBhbnRpYWxpYXM6IHRydWUsXG4gICAgc3R5bGU6IFwic3R5bGUuanNvblwiXG4gIH0pO1xuXG4gIC8vIG9uIG1hcCBsb2FkOlxuICAvLyAtIGRpc3BhdGNoIGl0cyB2YWx1ZSBiYWNrIHRvIG9qc1xuICAvLyAtIGFkZCB0aGUgZGVjay5nbCBsYXllciB0byB0aGUgbWFwXG4gIC8vIC0gYWRkIGEgcHJvcCB0byB0aGUgbGF5ZXIgdGhhdCBhZGRzL3JlbW92ZXMgYSBwb3B1cCBmcm9tIHRoZSBtYXBcbiAgLy8gICAod2UgY2FuJ3QgZG8gdGhpcyBvbiBpbml0aWFsIGxheWVyIGRlZiBiZWNhdXNlIHRoZSBtYXAgaXNuJ3QgcmVhZHkgeWV0KVxuICBtYXAub24oXCJsb2FkXCIsICgpID0+IHtcbiAgICBjb250YWluZXIudmFsdWUgPSBtYXA7XG4gICAgY29udGFpbmVyLmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KFwiaW5wdXRcIikpO1xuICAgIFxuICAgIG1hcC5hZGRMYXllcih0cmFuc2ZlckFyY3MpO1xuXG4gICAgZnVuY3Rpb24gdXBkYXRlUG9wdXAoaW5mbywgZXZlbnQpIHtcbiAgICAgIGlmIChpbmZvICYmIGluZm8ub2JqZWN0KSB7XG4gICAgICAgIC8vIFRPRE8gLSBzZXQgY29vcmRpbmF0ZXMgd2l0aCBldmVudC5jZW50ZXI/XG4gICAgICAgIFxuICAgICAgICAvLyBmb3JtYXQgdGhlIGFtb3VudFxuICAgICAgICBjb25zdCB0aXZUZXh0ID1cbiAgICAgICAgICBpbmZvLm9iamVjdC52YWx1ZSA+IDEwMDAgP1xuICAgICAgICAgICAgXCIkXCIgKyAoaW5mby5vYmplY3QudmFsdWUgLyAxMDAwKS50b0ZpeGVkKDEpICsgXCIgQlwiIDpcbiAgICAgICAgICAgIGluZm8ub2JqZWN0LnZhbHVlID4gMCA/XG4gICAgICAgICAgICAgIFwiJFwiICsgaW5mby5vYmplY3QudmFsdWUgKyBcIiBNXCIgOlxuICAgICAgICAgICAgICBcIjwgJDAuNSBNXCI7XG5cbiAgICAgICAgcG9wdXBcbiAgICAgICAgICAuc2V0TG5nTGF0KGluZm8uY29vcmRpbmF0ZSlcbiAgICAgICAgICAuc2V0SFRNTChcbiAgICAgICAgICAgIGA8c3BhbiBjbGFzcz1cInRpdGxlXCI+JHtpbmZvLm9iamVjdC5zdXBwbGllcn0g4oaSICR7aW5mby5vYmplY3QucmVjaXBpZW50fTwvc3Bhbj48L2JyPlxuICAgICAgICAgICAgVElWICR7dGl2VGV4dH0gaW4gJHtpbmZvLm9iamVjdC55ZWFyfTwvYnI+XG4gICAgICAgICAgICA8YSBocmVmPVwiI1wiIGRhdGEtbWljcm9tb2RhbC10cmlnZ2VyPVwibW9kYWwtYWJvdXRcIj48aSBjbGFzcz1cImJpIGJpLWluZm8tY2lyY2xlLWZpbGxcIj48L2k+IFdoYXQgaXMgVElWPzwvYT5gKVxuICAgICAgICAgIC5hZGRUbyhtYXApO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgcG9wdXAucmVtb3ZlKCk7XG4gICAgICB9XG4gICAgfVxuXG4gICAgLy8gYXR0YWNoIG91ciBob3ZlciB1cGRhdGVyIHRvIHRoZSBsYXllciAoY2FuJ3QgZG8gdGhpcyB1bnRpbCBhZnRlciB0aGVcbiAgICAvLyBsYXllciBpcyBpdHNlbGYgYXR0YWNoZWQpXG4gICAgdHJhbnNmZXJBcmNzLnNldFByb3BzKHsgb25Ib3ZlcjogdXBkYXRlUG9wdXAgfSk7XG5cbiAgICAvLyBhbHNvIGNvbmZpZ3VyZSB0aGUgYXV0b21hdGljYWxseS1jcmVhdGUgZGVjayBpbnN0YW5jZVxuICAgIHRyYW5zZmVyQXJjcy5kZWNrLnNldFByb3BzKHsgcGlja2luZ1JhZGl1czogMTAgfSk7XG4gICAgXG4gIH0pO1xuXG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmFsbFRyYW5zZmVycyA9IEZpbGVBdHRhY2htZW50KFwic2lwcmktZXhwb3J0cy1wcm9jZXNzZWQuY3N2XCIpXG4gIC5jc3YoeyB0eXBlZDogdHJ1ZSB9KTtcblxuLyogdGhlIGRhdGFzZXQgaXMgZmlsdGVyZWQgZmlyc3QgYnkgc2VsZWN0ZWQgeWVhciwgdGhlbiBieSBzZWFyY2ggdGVybVxuICAgKHdlIHVzZSBhIHNlcGFyYXRlIHRleHQgaW5wdXQgaW5zdGVhZCBvZiB0aGUgc2VhcmNoJ3MgYmVjYXVzZSB3ZSB3YW50IHRvXG4gICByZXRhaW4gdGhlIHNlYXJjaCB0ZXJtIHdoZW4gdGhlIHllYXIgY2hhbmdlcykgKi9cblxuZmlsdGVyZWRUcmFuc2ZlcnMgPSBhbGxUcmFuc2ZlcnMuZmlsdGVyKFxuICB0ID0+IHQueWVhciA9PSBOdW1iZXIoc2VsZWN0ZWRZZWFyKSAmJiBcbiAgICAodC5zdXBwbGllci50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlbGVjdGVkQ291bnRyeS50b0xvd2VyQ2FzZSgpKSB8fFxuICAgICB0LnJlY2lwaWVudC50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlbGVjdGVkQ291bnRyeS50b0xvd2VyQ2FzZSgpKSkpO1xuXG5maWx0ZXJlZFRyYW5zZmVyQ291bnQgPVxuICBmaWx0ZXJlZFRyYW5zZmVycy5tYXAoZCA9PiBkLnZhbHVlKS5sZW5ndGg7XG5maWx0ZXJlZFRyYW5zZmVyU3VtID0ge1xuICBjb25zdCB0aXZzVG9TdW0gPSBmaWx0ZXJlZFRyYW5zZmVycy5tYXAoZCA9PiBkLnZhbHVlKTtcbiAgaWYgKHRpdnNUb1N1bS5sZW5ndGggPiAwKSB7XG4gICAgcmV0dXJuIHRpdnNUb1N1bS5yZWR1Y2UoKHgsIHkpID0+IHggKyB5KTtcbiAgfSBlbHNlIHtcbiAgICByZXR1cm4gMDtcbiAgfVxufVxuICBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxudHJhbnNmZXJBcmNzLnNldFByb3BzKHsgZGF0YTogZmlsdGVyZWRUcmFuc2ZlcnMgfSk7XG5cbi8vIFRPRE8gLSBtYXliZSB1cGRhdGUgbWFwIGJvdW5kcyBiYXNlZCBvbiBib3VuZHMgb2YgY3VycmVudFllYXJUcmFuc2ZlcnM/XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtaWNybyA9IHJlcXVpcmUoXCJtaWNyb21vZGFsQDAuNC4xMFwiKVxubWljcm8uaW5pdCh7XG4gIGF3YWl0T3BlbkFuaW1hdGlvbjogdHJ1ZSxcbiAgYXdhaXRDbG9zZUFuaW1hdGlvbjogdHJ1ZVxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ3NlbGVjdGVkQ291bnRyeScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzZWxlY3RlZFllYXInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnbWFwJykifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -688,19 +679,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
   const processXRef = (id, note) => {
-    if (id.startsWith('sec-')) {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
-      return note.innerHTML;
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -709,28 +736,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       instance.disable();
       let url = xref.getAttribute('href');
       let hash = undefined; 
-      try { hash = new URL(url).hash; } catch {}
-      const id = hash.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note !== null) {
-        try {
-          const html = processXRef(id, note);
-          instance.setContent(html);
-        } finally {
-          instance.enable();
-          instance.show();
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
       } else {
-        // See if we can fetch this
-        fetch(url.split('#')[0])
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
         .then(res => res.text())
         .then(html => {
           const parser = new DOMParser();
           const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.getElementById(id);
-          console.log(htmlDoc.body.innerHTML);
+          const note = htmlDoc.querySelector('main.content');
           if (note !== null) {
-            const html = processXRef(id, note);
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
             instance.setContent(html);
           } 
         }).finally(() => {
@@ -808,6 +863,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -867,6 +948,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+
 
 
 

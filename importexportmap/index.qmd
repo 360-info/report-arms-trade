@@ -22,19 +22,6 @@ resources:
   - font/*
   - font/*/*
   - sipri-exports-processed.csv
-format:
-  html:
-    header-includes: |
-      <!-- Global site tag (gtag.js) - Google Analytics (no cookies!) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHGGBJD1HT"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-FHGGBJD1HT', {
-          client_storage: 'none'
-        });
-      </script>
 ---
 
 {{< include _popup-buttons.qmd >}}
@@ -45,11 +32,11 @@ format:
 r = require.alias({
   maplibregl: "maplibre-gl@2.1.9/dist/maplibre-gl.js",
   h3: {},
-  deck: "deck.gl@latest/dist.min.js"
+  deck: "deck.gl@8.9.35/dist.min.js"
 });
 
 maplibregl = r("maplibregl").catch(() => window["maplibregl"]);
-deck = r("deck");
+deck = r("deck")
 
 /* animated arcs:
    https://observablehq.com/@yarynam/animated-deck-gl-arcs
